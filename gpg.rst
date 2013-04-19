@@ -1,12 +1,22 @@
+:title: GPG Key-Signing Party
+:css: css/style1.css
+
+This is my first hovercraft presentation.
+It was for BarCamp Rochester, April 2013.
+
+----
+
 GPG Key-Signing Party
 ---------------------
 
 Barcamp Rochester, April 20th, 2013
 
-- Ralph Bean
+- Presented by Ralph Bean
 - http://github.com/ralphbean
 - http://twitter.com/ralphbean
 - http://threebean.org
+- ``2048R/971095FF 2012-12-06``
+- ``9450 4C3A E11D D197 9200 58AB A90E D7DE 9710 95FF``
 
 Slides available at http://threebean.org/presentations/gpg/
 
@@ -19,37 +29,17 @@ What is GPG (wikipedia quote time)
 
 - Pretty Good Privacy (**PGP**) is a data encryption and decryption program
   that provides cryptographic privacy and authentication for data
-  communication. **PGP** is often used for:
-
-  - signing
-  - encrypting
-  - decrypting
-
-  any of:
-
-  - texts
-  - e-mails
-  - files
-  - directories
-  - whole disk partitions
-
-  It was created by Phil Zimmermann in 1991.
+  communication. **PGP** is often used for signing, encrypting, and decrypting
+  texts, e-mails, files, directories, and even whole disk partitions.
 
 - GNU Privacy Guard (GnuPG or **GPG**) is a GPL Licensed alternative to the PGP
   suite of cryptographic software.
 
-- **X.509** is an ITU-T standard for a:
-
-  - public key infrastructure (PKI)
-  - Privilege Management Infrastructure (PMI).
-
-  **X.509** specifies, amongst other things, standard formats for:
-
-  - public key certificates
-  - certificate revocation lists
-  - attribute certificates
-  - a certification path validation algorithm
-
+- **X.509** is an ITU-T standard for a public key infrastructure (PKI) and 
+  a Privilege Management Infrastructure (PMI).
+  It specifies, amongst other things, standard formats for public key
+  certificates, certificate revocation lists, attribute certificates,
+  and a certification path validation algorithm.
   It assumes a strict hierarchical system of certificate authorities (CAs)
   for issuing the certificates.
 
@@ -67,21 +57,20 @@ Cases where you might use GPG
        > you quickly cut and post a 1.0.5 with the fixes I just pushed to
        > git?  THNXXX!  --slappy
 
-    - This message could be spoofed by someone else that, say, has gained
-      escalated privileges on your SCM, but not your release infrastructure.
-      They have pushed malware into your repo and rebased to hide it, but hope
-      that the release-manager colleague won't notice if the email appears to be
-      from you.
+  - This message could be spoofed by someone else that, say, has gained
+    escalated privileges on your SCM, but not your release infrastructure.
+    They have pushed malware into your repo and rebased to hide it, but hope
+    that the release-manager colleague won't notice if the email appears to be
+    from you.
 
-      If you *usually* GPG sign your emails, your colleague is more likely to
-      notice something is wrong and investigate first.
+    If you *usually* GPG sign your emails, your colleague is more likely to
+    notice something is wrong and investigate first.
 
 - Encrypting communications
 
   - You are a sysadmin and you need to email someone a password.
-    Do it in plaintext?  **NO**.
-
-    Encrypt the message using the *public key* of the *recipient*.
+    Do it in plaintext?  **NO**.  Encrypt the message using the *public key*
+    of the *recipient*.
 
 - Signing data
 
@@ -93,9 +82,7 @@ Cases where you might use GPG
 
   - Sometimes you want to share a dump of a production database with another
     developer to hack on locally.  You can post it to the web, but, private
-    data?
-
-    Encrypt the tarball with the *public key* of the *recipient*.
+    data?  Encrypt the tarball with the *public key* of the *recipient*.
 
 ----
 
@@ -140,6 +127,8 @@ Choosing default options are fine.  Make sure to choose a passphrase::
 
     $ gpg --gen-key
 
+Take a look in ``~/.gnupg/`` to see what it created.
+
 Your fingerprint can be found with::
 
     $ gpg --fingerprint jqdoe@example.com
@@ -147,7 +136,6 @@ Your fingerprint can be found with::
 Upload your *public* key to a keyserver (there are many such)::
 
     $ gpg --keyserver hkp://subkeys.pgp.net --send-key KEYNAME
-
 
 ----
 
@@ -183,11 +171,28 @@ Send the signed copy of their key back to the keyserver::
 
 The problem here is that we have verified that the *name* on their key
 matches the name on their identification, but we haven't verified that
-they *have control* over the email address listed on their key.  There
-are ways to do that described in the link above, but its just a little
-too complicated for an ad-hoc barcamp key signing session.  Forgive me.
+they *have control* over the email address listed on their key.  See
+the link above for how to do that.  Forgive me.
 
 Once others have signed *your* key and sent it back to the key-server, you
 can import *their* signatures with::
 
-    $ gpg --keyserver hkp://subkeys.pgp.net --recv-keys YOUR_FINGERPRINT
+    $ gpg --keyserver hkp://subkeys.pgp.net --recv-keys YOUR_KEY
+
+----
+
+*fín*
+-----
+
+Presented by:
+
+- Ralph Bean
+- http://github.com/ralphbean
+- http://twitter.com/ralphbean
+- http://threebean.org
+- ``2048R/971095FF 2012-12-06``
+- ``9450 4C3A E11D D197 9200 58AB A90E D7DE 9710 95FF``
+
+Slides available at http://threebean.org/presentations/gpg/
+
+.. image:: http://i.creativecommons.org/l/by-sa/3.0/88x31.png
