@@ -8,9 +8,9 @@ Barcamp Rochester, April 20th, 2013
 - http://twitter.com/ralphbean
 - http://threebean.org
 
-Slides available at:
+Slides available at http://threebean.org/presentations/gpg/
 
-- http://threebean.org/presentations/gpg/
+.. image:: http://i.creativecommons.org/l/by-sa/3.0/88x31.png
 
 ----
 
