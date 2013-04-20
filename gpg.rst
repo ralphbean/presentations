@@ -1,5 +1,5 @@
 :title: GPG Key-Signing Party
-:css: css/style1.css
+:css: css/style-redhat.css
 
 This is my first hovercraft presentation.
 It was for BarCamp Rochester, April 2013.
