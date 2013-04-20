@@ -6,5 +6,5 @@ To rock it, try::
     $ mkvirtualenv hovercraft --python=$(which python3)
     $ workon hovercraft
     $ pip install hovercraft
-    $ hovercraft gpg.rst gpg
+    $ hovercraft -c css/style-redhat.css gpg.rst gpg
     $ firefox gpg/index.html
