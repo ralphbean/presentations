@@ -27,7 +27,7 @@ Slides available at http://threebean.org/presentations/fedmsg/
 What is fedmsg
 --------------
 
-- The `Fedora Infrastructure Message Bus <http://fedmsg.com>`_.  It is a
+- The `Fedora Infrastructure Message Bus <http://fedmsg.com>`_ is a
   python package and API used around Fedora Infrastructure to send and
   receive messages to and from applications.  We also use the term to
   refer to the installation we have running already.
@@ -37,11 +37,21 @@ What is fedmsg
   with each other in the heterogenous, “Rube-Goldberg” ways they do now.
   You know.. with cron jobs.
 
+- It uses *X.509 certificates* to sign messages.  It's meant to be deployed
+  in an open infrastructure.  Anyone can read.  Anyone can write.  Only
+  some messages are trusted.
+
+- It is built on top of `ØMQ <http://zeromq.org>`_.  There is no central
+  broker and as far as we can tell, no single point of failure.
+
+- It is *publicly subscribable* -- hit up ``tcp://hub.fedoraproject.org:9940``
+  with a ``zmq.SUB`` socket.
+
 - It has Fedora in the name, but `Debian Infrastructure is talking
   <http://lists.debian.org/debian-qa/2013/04/msg00010.html>`_
   about picking it up this summer.  The code isn't Fedora-specific, but
   we might need to change the name to mean the *FEDerated Message Bus*
-  instead.
+  instead or something.
 
 ----
 
