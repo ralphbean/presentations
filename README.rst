@@ -1,5 +1,5 @@
 This is a repo containing my presentations on stuff.  I use
-`hovercraft <http://hovercraft.readthedocs.org`_ for them.
+`hovercraft <http://hovercraft.readthedocs.org>`_ for them.
 
 To rock it, try::
 
