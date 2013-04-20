@@ -95,7 +95,7 @@ Visualizing the Web of Trust
 
 ::
 
-    $ gpg --list-sigs --keyring ~/.gnupg./pubring.gpg | sig2dot > ~/.gnupg/pubring.dot
+    $ gpg --list-sigs --keyring ~/.gnupg/pubring.gpg | sig2dot > ~/.gnupg/pubring.dot
     $ neato -Tps ~/.gnupg/pubring.dot > ~/.gnupg/pubring.ps
     $ convert ~/.gnupg/pubring.ps ~/.gnupg/pubring.gif
     $ eog ~/.gnupg/pubring.gif
