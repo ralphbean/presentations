@@ -1,0 +1,49 @@
+html {
+    background-image: url('http://www.fedmsg.com/en/latest/_static/fedmsg.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right bottom;
+    background-size:20%;
+
+    height: 100%;
+    font-family: Helvetica Neue, Arial, sans-serif;
+    font-size: 16pt;
+}
+* {
+        margin: 0;
+        target-new: tab ! important
+}
+html, body {
+}
+li { list-style-type: none; }
+
+.highlight {
+    color: #D01A55;
+    font-weight: bold;
+}
+
+pre.highlight span {
+    color: rgb(102, 102, 102);
+}
+pre.highlight span.o {
+    color: rgb(208, 26, 85);
+}
+
+a {
+    border-radius: 3px 3px 3px 3px;
+    color: #D01A55;
+    padding: 0 2px;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:hover {
+    background: none repeat scroll 0 0 #FCB3D0;
+    color: #000000;
+    text-decoration: none;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+p, ul, li {
+    margin:10px;
+}
