@@ -1,5 +1,7 @@
 :title: fedmsg
 :css: css/style-fedmsg.css
+:data-transition-duration: 500
+:skip-help: true
 
 
 ----
@@ -110,7 +112,7 @@ Baller!  Can I hack it?
     >>> import fedmsg
 
     >>> # Read in the config from /etc/fedmsg.d/
-    >>> config = fedmsg.config.load_config([], None)
+    >>> config = fedmsg.config.load_config()
 
     >>> for name, endpoint, topic, msg in fedmsg.tail_messages(**config):
     ...     print topic, msg  # or use fedmsg.encoding.pretty_dumps(msg)
