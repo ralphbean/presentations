@@ -1,0 +1,41 @@
+html {
+    background-image: url('http://git-scm.com/images/logo.png')
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right bottom;
+
+    height: 100%;
+    font-family: Helvetica Neue, Arial, sans-serif;
+    font-size: 16pt;
+}
+* {
+        margin: 0;
+        target-new: tab ! important
+}
+html, body {
+}
+li { list-style-type: none; }
+
+.highlight {
+    color: #D01A55;
+    font-weight: bold;
+}
+
+a {
+    border-radius: 3px 3px 3px 3px;
+    color: #D01A55;
+    padding: 0 2px;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:hover {
+    background: none repeat scroll 0 0 #FCB3D0;
+    color: #000000;
+    text-decoration: none;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+p, ul, li {
+    margin:10px;
+}
