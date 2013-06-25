@@ -136,6 +136,17 @@ Try some feature branches
 - ``$ git flow feature start i-have-another-idea``
 - Make some changes, commit.
 - Check the output with ``$ git l``
+- You can switch between branches with ``git checkout``.  Try:
+
+  - ``$ git checkout develop``
+  - ``$ echo "watwat" > some_file.txt``
+  - ``$ git add some_file.txt``
+  - ``$ git commit -m 'Another commit'``
+  - ``$ git l --all``
+
+- ``$ git flow feature finish i-have-an-idea``
+- ``$ git flow feature publish i-have-another-idea``
+
 
 ----
 
