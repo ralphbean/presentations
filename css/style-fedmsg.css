@@ -15,11 +15,37 @@ html {
 }
 html, body {
 }
-li { list-style-type: none; }
+li { 
+    list-style-type: none;
+}
+tt {
+    color: #3c3c3c;
+    font-size: 19pt;
+}
 
-.highlight {
-    color: #D01A55;
+p {
+    font-size: 150%;
+    padding: 15px;
+}
+
+img {
+    margin-left: -100px;
+}
+.highlight.code.text {
+    font-size: 80%;
+    color: gray;
+}
+
+.highlight.code {
+    color: gray;
     font-weight: bold;
+    padding-left: 20px;
+    border-left: 1px dashed gray;
+    margin-top: 40px;
+}
+h2 {
+    margin-top: -12px;
+    padding-left: 40px;
 }
 
 pre.highlight span {
