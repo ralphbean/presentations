@@ -17,9 +17,10 @@ FLOCK13, Charleston SC, August 9th, 2013
 - http://twitter.com/ralphbean
 - http://threebean.org
 - ``2048R/971095FF 2012-12-06``
-- ``9450 4C3A E11D D197 9200 58AB A90E D7DE 9710 95FF``
 
-Slides available at http://threebean.org/presentations/fedmsg-flock13/
+Go sit in ``#fedora-fedmsg`` on ``irc.freenode.net``.
+
+http://threebean.org/presentations/fedmsg-flock13/
 
 .. image:: http://i.creativecommons.org/l/by-sa/3.0/88x31.png
 
@@ -60,6 +61,8 @@ some messages are trusted.
 
 It is built on top of `ØMQ <http://zeromq.org>`_.  There is no central
 broker and as far as we can tell, no single point of failure.
+
+Adding it to applications is *lightweight* -- sending is "fire-and-forget".
 
 ----
 
@@ -287,49 +290,39 @@ Full list at http://fedmsg.com/en/latest/topics/, including:
 :data-x: r1600
 :data-y: 0
 
-applications
-applications:
-- koji shadow
-- koji stalk
-- datanommer
-- datagrepper
-- fedora-news
-- badges
-- mirror pusher
-- fama updater
-- busmon
-- gource
+things
+======
+that use fedmsg
+~~~~~~~~~~~~~~~
+
+- dwa's `koji stalk <http://dwa.fedorapeople.org/wip/koji-stalk.py>`_
+- datanommer and `datagrepper! <https://apps.fedoraproject.org/datagrepper>`_
+- fedora `badges <https://apps.fedoraproject.org/badges>`_
+- pingou's `fedora-news <http://ambre.pingoured.fr/fedora-news/>`_
+- herlo's `FAS2Trac fama updater (ftl) <https://git.fedorahosted.org/cgit/ftl.git>`_
+- p3ck's `fedmsg-download <https://github.com/p3ck/fedmsg-download/>`_
+- lmacken's `fedmsg-notify <http://lewk.org/blog/fedmsg-notify>`_
+- fedora `bus monitor <https://apps.fedoraproject.org/busmon>`_
+- gource, `of course <http://threebean.org/blog/fedmsg-live-gource/>`_
 
 ----
 
 :data-x: r1600
 :data-y: 0
 
-design decisions:
-- decentralized
-- x.509 certs
-- fire and forget
+future
+======
+stuff
+~~~~~
 
-----
+- fedmsg-notifications (the `repo and notes <https://github.com/fedora-infra/fedmsg-notifications>`_)
+- fedora-mobile (amazing `landing page <http://fedoramobile.elrod.me/>`_)
+- mirror pusher (sizzling `pull request <https://github.com/fedora-infra/fedmsg/pull/158>`_)
+- debian (latest `post from @olasd <http://blog.olasd.eu/2013/07/bootstrapping-fedmsg-for-debian/>`_)
 
-:data-x: r1600
-:data-y: 0
-
-future stuff
-- fedmsg-notifications
-- fedora-mobile
-- debian
 - persistance
 - gpg signatures
 - dns discovery
-
-----
-
-Testimonials
-------------
-
-`Jordan Sissel <http://www.semicomplete.com>`_ says: "Cool idea, gives new
-meaning to open infrastructure."
 
 ----
 
@@ -348,8 +341,11 @@ Presented by:
 - http://twitter.com/ralphbean
 - http://threebean.org
 - ``2048R/971095FF 2012-12-06``
-- ``9450 4C3A E11D D197 9200 58AB A90E D7DE 9710 95FF``
 
-Slides available at http://threebean.org/presentations/fedmsg-flock2013/
+http://threebean.org/presentations/fedmsg-flock2013/
+
+Development discussed in ``#fedora-apps``.
+
+Join ``#fedora-fedmsg`` for the firehose.
 
 .. image:: http://i.creativecommons.org/l/by-sa/3.0/88x31.png
