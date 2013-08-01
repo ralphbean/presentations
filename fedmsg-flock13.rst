@@ -7,8 +7,10 @@
 
 ----
 
-fedmsg - The Fedora Infrastructure Message Bus
-----------------------------------------------
+fedmsg
+======
+The Fedora Infrastructure Message Bus
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FLOCK13, Charleston SC, August 9th, 2013
 
