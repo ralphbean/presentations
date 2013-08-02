@@ -71,7 +71,7 @@ Adding it to applications is *lightweight* -- sending is "fire-and-forget".
 :data-x: r0
 :data-y: r900
 
-.. image:: https://raw.github.com/fedora-infra/fedmsg/167c2d418936cd3c5e3a30e5880e4ca05fd53f39/doc/_static/topology.png
+.. image:: https://raw.github.com/fedora-infra/fedmsg/f0e6a12a2737fae096c4f3ccc8ab7d8386459c50/doc/_static/topology.png
    :height: 700px
 
 ----
