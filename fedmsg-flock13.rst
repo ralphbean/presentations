@@ -317,16 +317,101 @@ future
 stuff
 ~~~~~
 
-- fedmsg-notifications (the `repo and notes <https://github.com/fedora-infra/fedmsg-notifications>`_)
-- fedora-mobile (amazing `landing page <http://fedoramobile.elrod.me/>`_)
-- mirror pusher (sizzling `pull request <https://github.com/fedora-infra/fedmsg/pull/158>`_)
-- debian (latest `post from @olasd <http://blog.olasd.eu/2013/07/bootstrapping-fedmsg-for-debian/>`_)
+----
 
-- persistance
-- gpg signatures
-- dns discovery
+:data-x: r0
+:data-y: r900
+
+fedora
+======
+mobile
+~~~~~~
+
+- See Ricky Elrod's `landing page <http://fedoramobile.elrod.me/>`_
 
 ----
+
+:data-x: r0
+:data-y: r900
+
+future
+======
+stuff
+~~~~~
+
+**fedmsg-notifications.** -- *Problem:* all of our
+applications carry their own email code.  With that comes further baggage
+and maintenance.
+
+With fedmsg notifications for interesting infrastructure events, we can
+put all that code in one place where it can be more easily maintained.
+
+Benefit to the end-user:  manage notification preferences in one place
+instead of per-app.
+
+What about notifications to different *contexts*?  Email?
+IRC privmsg?  Android?  RSS?
+
+`A repo has been created
+<https://github.com/fedora-infra/fedmsg-notifications>`_
+for this but contains nothing more than notes at this point.
+
+----
+
+:data-x: r0
+:data-y: r900
+
+future
+======
+stuff
+~~~~~
+
+**Mirror pushing.** -- *Problem:* We have over 200 mirrors that help serve
+Fedora releases.  You can read more about them `here
+<https://fedoraproject.org/wiki/Infrastructure/Mirroring>`_.
+As it stands they all run ``rsync`` on some interval to poll for new content.
+
+There was some discussion of pushing the data years ago, but understandably,
+mirror admins are reluctant to allow someone access to push content onto their
+machines.  With a fedmsg solution, we only push a notification; the pulling
+is still within the admin's control.
+
+There is a `pull request <https://github.com/fedora-infra/fedmsg/pull/158>`_
+waiting for review that will add a ``fedmsg-trigger`` command to fedmsg core.
+We can use that to kick off rsync jobs when messages matching certain criteria
+are received.
+
+----
+
+:data-x: r0
+:data-y: r900
+
+future
+======
+stuff
+~~~~~
+
+- Debian deployment!  See the latest `post from @olasd <http://blog.olasd.eu/2013/07/bootstrapping-fedmsg-for-debian/>`_.
+- To listen to debian messages on your box, add this
+  to ``/etc/fedmsg.d/endpoints.py``:
+
+.. code:: python
+
+    # You can get messages from here too!
+    "debian-infrastructure": [
+        "tcp://fedmsg.olasd.eu:9940",
+    ],
+
+- new features
+
+  - persistance
+  - gpg signatures
+  - dns discovery
+
+----
+
+:data-x: r1600
+:data-y: r0
 
 *fín*
 -----
