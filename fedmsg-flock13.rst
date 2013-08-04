@@ -301,6 +301,9 @@ that use fedmsg
 - datanommer and `datagrepper! <https://apps.fedoraproject.org/datagrepper>`_
 - fedora `badges <https://apps.fedoraproject.org/badges>`_
 - pingou's `fedora-news <http://ambre.pingoured.fr/fedora-news/>`_
+- pingou's `this-week-in-fedora <http://ambre.pingoured.fr/thisweekinfedora/>`_
+- pingou's `owner changes report tool
+  <https://lists.fedoraproject.org/pipermail/infrastructure/2013-June/013070.html>`_
 - herlo's `FAS2Trac fama updater (ftl) <https://git.fedorahosted.org/cgit/ftl.git>`_
 - p3ck's `fedmsg-download <https://github.com/p3ck/fedmsg-download/>`_
 - lmacken's `fedmsg-notify <http://lewk.org/blog/fedmsg-notify>`_
