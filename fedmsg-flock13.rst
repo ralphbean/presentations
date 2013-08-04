@@ -330,7 +330,9 @@ things
 that use fedmsg
 ~~~~~~~~~~~~~~~
 
-- dwa's `koji stalk <http://dwa.fedorapeople.org/wip/koji-stalk.py>`_
+- David Aquilina's (dwa's) `koji stalk <http://dwa.fedorapeople.org/wip/koji-stalk.py>`_
+  monitors koji over fedmsg and rebuilds for arm and ppc.
+
 - datanommer and `datagrepper! <https://apps.fedoraproject.org/datagrepper>`_
 - fedora `badges <https://apps.fedoraproject.org/badges>`_
 - pingou's `fedora-news <http://ambre.pingoured.fr/fedora-news/>`_
