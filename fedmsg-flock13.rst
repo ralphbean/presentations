@@ -203,6 +203,39 @@ from python
 
 :data-x: r0
 :data-y: r900
+
+consuming messages
+==================
+with a daemon
+~~~~~~~~~~~~~
+
+``fedmsg-hub`` is a daemon that can make writing your own
+long-running consumers simpler.  There are `docs on fedmsg.com
+<http://www.fedmsg.com/en/latest/consuming/#the-hub-consumer-approach>`_
+for writing plugins, but they look like this:
+
+.. code:: python
+
+    import pprint
+    import fedmsg.consumers
+
+
+    class MyConsumer(fedmsg.consumers.FedmsgConsumer):
+        topic = "org.fedoraproject.*"
+        config_key = 'myconsumer.enabled'
+
+        def consume(self, message):
+            pprint.pprint(message)
+
+
+Luke Macken wrote `an example consumer
+<https://github.com/lmacken/fedmsg-koji-consumer>`_ with everything you need.
+Clone it and use it as a starting point as you please.
+
+----
+
+:data-x: r0
+:data-y: r900
 :data-scale: 0.5
 
 consuming messages
