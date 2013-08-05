@@ -39,12 +39,18 @@ what it is
 :data-y: r900
 
 The `Fedora Infrastructure Message Bus <http://fedmsg.com>`_ is a
-python package and API used around Fedora Infrastructure to send and
-receive messages to and from applications.
+python package and API used around Fedora Infrastructure to send
+and receive messages to and from applications.
 
-We want to hook all the services in Fedora Infrastructure up to send
-messages to one another over a message bus instead of communicating
-with each other in the heterogeneous, “Rube-Goldberg” ways they do now.
+It's not my idea!  In 2009, `jkeating started making noise about
+a message bus
+<http://jkeating.fedorapeople.org/lfnw-messaging-2009.pdf>`_ and
+how cool it would be.
+
+We wanted to hook all the services in Fedora Infrastructure up to
+send messages to one another over a message bus instead of
+communicating with each other in the heterogeneous,
+“Rube-Goldberg” ways they do now.
 
 ----
 
