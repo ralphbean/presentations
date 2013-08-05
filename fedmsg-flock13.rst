@@ -330,20 +330,117 @@ things
 that use fedmsg
 ~~~~~~~~~~~~~~~
 
-- David Aquilina's (dwa's) `koji stalk <http://dwa.fedorapeople.org/wip/koji-stalk.py>`_
-  monitors koji over fedmsg and rebuilds for arm and ppc.
+----
 
-- datanommer and `datagrepper! <https://apps.fedoraproject.org/datagrepper>`_
-- fedora `badges <https://apps.fedoraproject.org/badges>`_
+:data-x: r0
+:data-y: r900
+
+koji
+====
+stalk
+~~~~~
+
+David Aquilina's (dwa's) `koji stalk
+<http://dwa.fedorapeople.org/wip/koji-stalk.py>`_ monitors koji over fedmsg and
+rebuilds packages for arm and ppc.
+
+----
+
+FAS2Trac (ftl)
+==============
+(fama updater)
+~~~~~~~~~~~~~~
+
+herlo's `FAS2Trac fama updater (ftl) <https://git.fedorahosted.org/cgit/ftl.git>`_
+
+does stuff?
+
+----
+
+compose
+=======
+downloader
+~~~~~~~~~~
+
+p3ck's `fedmsg-download <https://github.com/p3ck/fedmsg-download/>`_
+listens for messages that the daily branched and rawhide compose
+process has finished and downloads the latest builds from
+``rsync://dl.fedoraproject.org/fedora-linux-development``
+
+----
+
+notifications
+=============
+on the desktop
+~~~~~~~~~~~~~~
+
+lmacken's `fedmsg-notify <http://lewk.org/blog/fedmsg-notify>`_ listens
+for messages and displays a filtered stream on your desktop with ``libnotify``.
+
+.. image:: http://lewk.org/img/fedmsg-notify-0-crop.png
+   :height: 350px
+
+----
+
+monitoring the bus
+==================
+in the browser with websockets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: http://threebean.org/busmon-screenshot.png
+   :height: 525px
+   :alt: Fedora Bus Monitor
+   :target: https://apps.fedoraproject.org/busmon
+
+----
+
+...and gource,
+==============
+of course
+~~~~~~~~~
+
+.. image:: http://threebean.org/gource-screenshot.png
+   :height: 650px
+   :alt: Fedmsg piped live to gource
+   :target: http://threebean.org/blog/fedmsg-live-gource/
+
+----
+
+nom
+===
+all the data
+~~~~~~~~~~~~
+
+`datanommer <https://github.com/fedora-infra/datanommer>`_ was
+originally `conceived of by Ian Weller
+<https://fedoraproject.org/wiki/User:Ianweller/statistics_plus_plus>`_.
+It's a fedmsg-hub plugin that sits listening on the bus and
+simply throws every message into a database.
+
+It has a partner: `datagrepper
+<https://apps.fedoraproject.org/datagrepper>`_!  Datagrepper is
+an HTTP JSON API for the whole history of messages kept in datanommer.
+
+----
+
+reports
+=======
+10 ways from sunday
+~~~~~~~~~~~~~~~~~~~
+
 - pingou's `fedora-news <http://ambre.pingoured.fr/fedora-news/>`_
 - pingou's `this-week-in-fedora <http://ambre.pingoured.fr/thisweekinfedora/>`_
 - pingou's `owner changes report tool
   <https://lists.fedoraproject.org/pipermail/infrastructure/2013-June/013070.html>`_
-- herlo's `FAS2Trac fama updater (ftl) <https://git.fedorahosted.org/cgit/ftl.git>`_
-- p3ck's `fedmsg-download <https://github.com/p3ck/fedmsg-download/>`_
-- lmacken's `fedmsg-notify <http://lewk.org/blog/fedmsg-notify>`_
-- fedora `bus monitor <https://apps.fedoraproject.org/busmon>`_
-- gource, `of course <http://threebean.org/blog/fedmsg-live-gource/>`_
+
+----
+
+Fedora Badges
+=============
+for you, and you, and you
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- fedora `badges <https://apps.fedoraproject.org/badges>`_
 
 ----
 
