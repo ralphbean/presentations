@@ -442,9 +442,9 @@ stuff
 
 - new features
 
-  - persistance
+  - persistance and replay, `pull request <https://github.com/fedora-infra/fedmsg/pull/155>`_
   - gpg signatures
-  - dns discovery
+  - dns discovery `pull request <https://github.com/fedora-infra/fedmsg/pull/165>`_
 
 ----
 
