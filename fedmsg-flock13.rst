@@ -331,10 +331,10 @@ Full list at http://fedmsg.com/en/latest/topics/, including:
 :data-x: r1600
 :data-y: 0
 
-things
-======
-that use fedmsg
-~~~~~~~~~~~~~~~
+things that use fedmsg
+======================
+there's a lot of them at this point
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ----
 
@@ -357,9 +357,11 @@ FAS2Trac (ftl)
 (fama updater)
 ~~~~~~~~~~~~~~
 
-herlo's `FAS2Trac fama updater (ftl) <https://git.fedorahosted.org/cgit/ftl.git>`_
-
-does stuff?
+herlo's `FAS2Trac fama updater (ftl)
+<https://git.fedorahosted.org/cgit/ftl.git>`_ listens to messages indicating
+that a user has applied for membership in the ambassadors group -- it then
+files a ticket in the `ambassadors' trac instance
+<https://fedorahosted.org/fama/>`_ for a potential sponsor via XMLRPC.
 
 ----
 
@@ -370,7 +372,7 @@ downloader
 
 p3ck's `fedmsg-download <https://github.com/p3ck/fedmsg-download/>`_
 listens for messages that the daily branched and rawhide compose
-process has finished and downloads the latest builds from
+process has finished -- it then downloads the latest builds from
 ``rsync://dl.fedoraproject.org/fedora-linux-development``
 
 ----
@@ -434,10 +436,50 @@ reports
 10 ways from sunday
 ~~~~~~~~~~~~~~~~~~~
 
-- pingou's `fedora-news <http://ambre.pingoured.fr/fedora-news/>`_
-- pingou's `this-week-in-fedora <http://ambre.pingoured.fr/thisweekinfedora/>`_
-- pingou's `owner changes report tool
-  <https://lists.fedoraproject.org/pipermail/infrastructure/2013-June/013070.html>`_
+`pingou <http://blog.pingoured.fr/>`_ has been really busy writing tools
+against `datagrepper <https://apps.fedoraproject.org/datagrepper>`_...
+
+----
+
+reports
+=======
+10 ways from sunday
+~~~~~~~~~~~~~~~~~~~
+
+pingou's `fedora-news <http://ambre.pingoured.fr/fedora-news/>`_ is a
+nice HTML5 mobile-ready app that gives you access to all sorts of the
+latest information from the Fedora Community.
+
+.. image:: http://threebean.org/fedora-news-screenshot.png
+   :height: 500px
+
+----
+
+reports
+=======
+10 ways from sunday
+~~~~~~~~~~~~~~~~~~~
+
+pingou's `this-week-in-fedora <http://ambre.pingoured.fr/thisweekinfedora/>`_
+weekly posts stats about the most active contributors.
+
+.. image:: http://threebean.org/thisweekinfedora-screenshot.png
+   :height: 500px
+
+----
+
+reports
+=======
+10 ways from sunday
+~~~~~~~~~~~~~~~~~~~
+
+Every week, pingou's `owner changes report tool
+<https://lists.fedoraproject.org/pipermail/infrastructure/2013-June/013070.html>`_
+emails the devel list with a report of what packages were orphaned, unorphaned
+and retired.
+
+.. image:: http://threebean.org/ownerchange-screenshot.png
+   :height: 500px
 
 ----
 
@@ -446,7 +488,12 @@ Fedora Badges
 for you, and you, and you
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- fedora `badges <https://apps.fedoraproject.org/badges>`_
+`Fedora badges <https://badges.fedoraproject.org/>`_ is a new webapp launching
+this weekend that awards "badges" to Fedora contributors for their activity.
+
+.. image:: http://oddshocks.com/presentations/fedora_badges/badges_fan.png
+
+Check out the talk on it tomorrow!
 
 ----
 
@@ -468,7 +515,9 @@ fedora
 mobile
 ~~~~~~
 
-- See Ricky Elrod's `landing page <http://fedoramobile.elrod.me/>`_
+See Ricky Elrod's `landing page <http://fedoramobile.elrod.me/>`_.
+
+There's a hackfest on it this weekend!
 
 ----
 
@@ -532,8 +581,9 @@ future
 stuff
 ~~~~~
 
-- Debian deployment!  See the latest `post from @olasd <http://blog.olasd.eu/2013/07/bootstrapping-fedmsg-for-debian/>`_.
-- To listen to debian messages on your box, add this
+Debian deployment!  See the latest `post from @olasd <http://blog.olasd.eu/2013/07/bootstrapping-fedmsg-for-debian/>`_.
+
+To listen to debian messages on your box, add this
   to ``/etc/fedmsg.d/endpoints.py``:
 
 .. code:: python
@@ -543,11 +593,21 @@ stuff
         "tcp://fedmsg.olasd.eu:9940",
     ],
 
-- new features
+----
 
-  - persistance and replay, `pull request <https://github.com/fedora-infra/fedmsg/pull/155>`_
-  - gpg signatures
-  - dns discovery `pull request <https://github.com/fedora-infra/fedmsg/pull/165>`_
+future
+======
+stuff
+~~~~~
+
+The debian developers are submitting lots of new features to be included in
+the ``0.7.0`` release.
+
+- persistance and replay, (`a pull request
+  <https://github.com/fedora-infra/fedmsg/pull/155>`_)
+- gpg signatures
+- dns discovery via SRV records (`another pull request
+  <https://github.com/fedora-infra/fedmsg/pull/165>`_)
 
 ----
 
