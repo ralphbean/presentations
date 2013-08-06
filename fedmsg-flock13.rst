@@ -615,8 +615,8 @@ the ``0.7.0`` release.
 :data-x: r1600
 :data-y: r0
 
-*fín*
------
+get on the bus!
+===============
 
 Get the source:
 
