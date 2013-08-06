@@ -483,7 +483,7 @@ and retired.
 
 ----
 
-Fedora Badges
+fedora badges
 =============
 for you, and you, and you
 ~~~~~~~~~~~~~~~~~~~~~~~~~
