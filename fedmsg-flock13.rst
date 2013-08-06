@@ -55,7 +55,7 @@ communicating with each other in the heterogeneous,
 ----
 
 .. image:: https://upload.wikimedia.org/wikipedia/commons/3/31/Rube_goldberg_machine.jpg
-   :height: 800px
+   :height: 600px
 
 ----
 
@@ -78,7 +78,7 @@ Adding it to applications is *lightweight* -- sending is "fire-and-forget".
 :data-y: r900
 
 .. image:: https://raw.github.com/fedora-infra/fedmsg/f0e6a12a2737fae096c4f3ccc8ab7d8386459c50/doc/_static/topology.png
-   :height: 625px
+   :height: 590px
 
 ----
 
@@ -396,7 +396,7 @@ in the browser with websockets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: http://threebean.org/busmon-screenshot.png
-   :height: 525px
+   :height: 510px
    :alt: Fedora Bus Monitor
    :target: https://apps.fedoraproject.org/busmon
 
@@ -451,7 +451,7 @@ nice HTML5 mobile-ready app that gives you access to all sorts of the
 latest information from the Fedora Community.
 
 .. image:: http://threebean.org/fedora-news-screenshot.png
-   :height: 500px
+   :height: 420px
 
 ----
 
@@ -479,7 +479,7 @@ emails the devel list with a report of what packages were orphaned, unorphaned
 and retired.
 
 .. image:: http://threebean.org/ownerchange-screenshot.png
-   :height: 500px
+   :height: 420px
 
 ----
 

@@ -29,7 +29,9 @@ p {
 }
 
 img {
-    margin-left: -100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 .highlight.code.text {
     font-size: 80%;
