@@ -63,14 +63,15 @@ communicating with each other in the heterogeneous,
 :data-y: 0
 :data-scale: 1
 
-It uses *X.509 certificates* to sign messages.  It's meant to be deployed
-in an open infrastructure.  Anyone can read.  Anyone can write.  Only
-some messages are trusted.
+It is built on top of `ØMQ <http://zeromq.org>`_.
 
-It is built on top of `ØMQ <http://zeromq.org>`_.  There is no central
-broker and as far as we can tell, no single point of failure.
+It uses *X.509 certificates* to sign messages (like "HTTPS" certs).
 
-Adding it to applications is *lightweight* -- sending is "fire-and-forget".
+It's meant to be deployed in an open infrastructure.  Anyone can read.
+Anyone can write.  Only some messages are trusted.
+
+There is no central broker and as far as we can tell, no single
+point of failure.
 
 ----
 
@@ -234,7 +235,7 @@ for writing plugins, but they look like this:
             pprint.pprint(message)
 
 
-Luke Macken wrote `an example consumer
+lmacken wrote `an example consumer
 <https://github.com/lmacken/fedmsg-koji-consumer>`_ with everything you need.
 Clone it and use it as a starting point as you please.
 
