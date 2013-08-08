@@ -78,7 +78,7 @@ point of failure.
 :data-x: r0
 :data-y: r900
 
-.. image:: https://raw.github.com/fedora-infra/fedmsg/f0e6a12a2737fae096c4f3ccc8ab7d8386459c50/doc/_static/topology.png
+.. image:: https://raw.github.com/fedora-infra/fedmsg/0ad68923a3aaed87db7c345f636b70ecbcffecd8/doc/_static/topology.png
    :height: 590px
 
 ----
