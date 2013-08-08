@@ -487,7 +487,7 @@ pingou's `fedora-news <http://ambre.pingoured.fr/fedora-news/>`_ is a
 nice HTML5 mobile-ready app that gives you access to all sorts of the
 latest information from the Fedora Community.
 
-.. image:: http://threebean.org/fedora-news-screenshot.png
+.. image:: images/fedmsg-flock13/fedora-news-screencast.gif
    :height: 420px
 
 ----
