@@ -63,12 +63,18 @@ communicating with each other in the heterogeneous,
 :data-y: 0
 :data-scale: 1
 
-It is built on top of `ØMQ <http://zeromq.org>`_.
 
 It uses *X.509 certificates* to sign messages (like "HTTPS" certs).
 
 It's meant to be deployed in an open infrastructure.  Anyone can read.
 Anyone can write.  Only some messages are trusted.
+
+----
+
+:data-x: r1600
+:data-y: r0
+
+It is built on top of `ØMQ <http://zeromq.org>`_.
 
 There is no central broker and as far as we can tell, no single
 point of failure.
