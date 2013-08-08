@@ -432,7 +432,7 @@ monitoring the bus
 in the browser with websockets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: http://threebean.org/busmon-screenshot.png
+.. image:: images/fedmsg-flock13/busmon-screencast.gif
    :height: 510px
    :alt: Fedora Bus Monitor
    :target: https://apps.fedoraproject.org/busmon
