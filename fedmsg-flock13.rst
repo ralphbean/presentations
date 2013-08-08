@@ -547,6 +547,44 @@ stuff
 :data-x: r0
 :data-y: r900
 
+future
+======
+stuff
+~~~~~
+
+Debian deployment!  See the latest `post from @olasd <http://blog.olasd.eu/2013/07/bootstrapping-fedmsg-for-debian/>`_.
+
+To listen to debian messages on your box, add this
+  to ``/etc/fedmsg.d/endpoints.py``:
+
+.. code:: python
+
+    # You can get messages from here too!
+    "debian-infrastructure": [
+        "tcp://fedmsg.olasd.eu:9940",
+    ],
+
+----
+
+future
+======
+stuff
+~~~~~
+
+The debian developers are submitting lots of new features to be included in
+the ``0.7.0`` release.
+
+- persistance and replay, (`a pull request
+  <https://github.com/fedora-infra/fedmsg/pull/155>`_)
+- gpg signatures
+- dns discovery via SRV records (`another pull request
+  <https://github.com/fedora-infra/fedmsg/pull/165>`_)
+
+----
+
+:data-x: r0
+:data-y: r900
+
 fedora
 ======
 mobile
@@ -607,44 +645,6 @@ There is a `pull request <https://github.com/fedora-infra/fedmsg/pull/158>`_
 waiting for review that will add a ``fedmsg-trigger`` command to fedmsg core.
 We can use that to kick off rsync jobs when messages matching certain criteria
 are received.
-
-----
-
-:data-x: r0
-:data-y: r900
-
-future
-======
-stuff
-~~~~~
-
-Debian deployment!  See the latest `post from @olasd <http://blog.olasd.eu/2013/07/bootstrapping-fedmsg-for-debian/>`_.
-
-To listen to debian messages on your box, add this
-  to ``/etc/fedmsg.d/endpoints.py``:
-
-.. code:: python
-
-    # You can get messages from here too!
-    "debian-infrastructure": [
-        "tcp://fedmsg.olasd.eu:9940",
-    ],
-
-----
-
-future
-======
-stuff
-~~~~~
-
-The debian developers are submitting lots of new features to be included in
-the ``0.7.0`` release.
-
-- persistance and replay, (`a pull request
-  <https://github.com/fedora-infra/fedmsg/pull/155>`_)
-- gpg signatures
-- dns discovery via SRV records (`another pull request
-  <https://github.com/fedora-infra/fedmsg/pull/165>`_)
 
 ----
 
