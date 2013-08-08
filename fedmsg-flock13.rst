@@ -85,7 +85,7 @@ point of failure.
 :data-y: r900
 
 .. image:: images/fedmsg-flock13-img/topology.png
-   :height: 590px
+   :height: 485px
 
 ----
 
