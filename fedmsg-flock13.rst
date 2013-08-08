@@ -24,7 +24,7 @@ Go sit in ``#fedora-fedmsg`` on ``irc.freenode.net``.
 
 http://threebean.org/presentations/fedmsg-flock13/
 
-.. image:: http://i.creativecommons.org/l/by-sa/3.0/88x31.png
+.. image:: images/fedmsg-flock13-img/creative-commons.png
 
 ----
 
@@ -54,7 +54,7 @@ communicating with each other in the heterogeneous,
 
 ----
 
-.. image:: https://upload.wikimedia.org/wikipedia/commons/3/31/Rube_goldberg_machine.jpg
+.. image:: images/fedmsg-flock13-img/Rube_goldberg_machine.jpg
    :height: 600px
 
 ----
@@ -78,7 +78,7 @@ point of failure.
 :data-x: r0
 :data-y: r900
 
-.. image:: https://raw.github.com/fedora-infra/fedmsg/0ad68923a3aaed87db7c345f636b70ecbcffecd8/doc/_static/topology.png
+.. image:: images/fedmsg-flock13-img/topology.png
    :height: 590px
 
 ----
@@ -386,7 +386,7 @@ on the desktop
 lmacken's `fedmsg-notify <http://lewk.org/blog/fedmsg-notify>`_ listens
 for messages and displays a filtered stream on your desktop with ``libnotify``.
 
-.. image:: http://lewk.org/img/fedmsg-notify-0-crop.png
+.. image:: images/fedmsg-flock13-img/fedmsg-notify-0-crop.png
    :height: 300px
 
 ----
@@ -398,7 +398,7 @@ on the desktop
 
 For kicks, there's a gnome-shell extension.
 
-.. image:: http://lewk.org/img/gnome-shell-extension-fedmsg.png
+.. image:: images/fedmsg-flock13-img/gnome-shell-extension-fedmsg.png
    :height: 300px
 
 ----
@@ -410,7 +410,7 @@ on the desktop
 
 You can turn on and off all kinds of message types.
 
-.. image:: http://lewk.org/img/fedmsg-notify-config-0.png
+.. image:: images/fedmsg-flock13-img/fedmsg-notify-config-0.png
    :height: 500px
 
 ----
@@ -422,7 +422,7 @@ on the desktop
 
 Some more advanced message filtration.
 
-.. image:: http://lewk.org/img/fedmsg-notify-config-1.png
+.. image:: images/fedmsg-flock13-img/fedmsg-notify-config-1.png
    :height: 500px
 
 ----
@@ -432,7 +432,7 @@ monitoring the bus
 in the browser with websockets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: images/fedmsg-flock13/busmon-screencast.gif
+.. image:: images/fedmsg-flock13-img/busmon-screencast.gif
    :height: 510px
    :alt: Fedora Bus Monitor
    :target: https://apps.fedoraproject.org/busmon
@@ -444,7 +444,7 @@ in the browser with websockets
 of course
 ~~~~~~~~~
 
-.. image:: http://threebean.org/gource-screenshot.png
+.. image:: images/fedmsg-flock13-img/gource-screenshot.png
    :height: 650px
    :alt: Fedmsg piped live to gource
    :target: http://threebean.org/blog/fedmsg-live-gource/
@@ -487,7 +487,7 @@ pingou's `fedora-news <http://ambre.pingoured.fr/fedora-news/>`_ is a
 nice HTML5 mobile-ready app that gives you access to all sorts of the
 latest information from the Fedora Community.
 
-.. image:: images/fedmsg-flock13/fedora-news-screencast.gif
+.. image:: images/fedmsg-flock13-img/fedora-news-screencast.gif
    :height: 420px
 
 ----
@@ -500,7 +500,7 @@ reports
 pingou's `this-week-in-fedora <http://ambre.pingoured.fr/thisweekinfedora/>`_
 weekly posts stats about the most active contributors.
 
-.. image:: http://threebean.org/thisweekinfedora-screenshot.png
+.. image:: images/fedmsg-flock13-img/thisweekinfedora-screenshot.png
    :height: 500px
 
 ----
@@ -515,7 +515,7 @@ Every week, pingou's `owner changes report tool
 emails the devel list with a report of what packages were orphaned, unorphaned
 and retired.
 
-.. image:: http://threebean.org/ownerchange-screenshot.png
+.. image:: images/fedmsg-flock13-img/ownerchange-screenshot.png
    :height: 420px
 
 ----
@@ -528,7 +528,7 @@ for you, and you, and you
 `Fedora badges <https://badges.fedoraproject.org/>`_ is a new webapp launching
 this weekend that awards "badges" to Fedora contributors for their activity.
 
-.. image:: http://oddshocks.com/presentations/fedora_badges/badges_fan.png
+.. image:: images/fedmsg-flock13-img/badges_fan.png
 
 Check out the talk on it tomorrow!
 
@@ -673,4 +673,4 @@ Development discussed in ``#fedora-apps``.
 
 Join ``#fedora-fedmsg`` for the firehose.
 
-.. image:: http://i.creativecommons.org/l/by-sa/3.0/88x31.png
+.. image:: images/fedmsg-flock13-img/creative-commons.png
