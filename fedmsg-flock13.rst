@@ -387,7 +387,43 @@ lmacken's `fedmsg-notify <http://lewk.org/blog/fedmsg-notify>`_ listens
 for messages and displays a filtered stream on your desktop with ``libnotify``.
 
 .. image:: http://lewk.org/img/fedmsg-notify-0-crop.png
-   :height: 350px
+   :height: 300px
+
+----
+
+notifications
+=============
+on the desktop
+~~~~~~~~~~~~~~
+
+For kicks, there's a gnome-shell extension.
+
+.. image:: http://lewk.org/img/gnome-shell-extension-fedmsg.png
+   :height: 300px
+
+----
+
+notifications
+=============
+on the desktop
+~~~~~~~~~~~~~~
+
+You can turn on and off all kinds of message types.
+
+.. image:: http://lewk.org/img/fedmsg-notify-config-0.png
+   :height: 500px
+
+----
+
+notifications
+=============
+on the desktop
+~~~~~~~~~~~~~~
+
+Some more advanced message filtration.
+
+.. image:: http://lewk.org/img/fedmsg-notify-config-1.png
+   :height: 500px
 
 ----
 
