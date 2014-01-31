@@ -2,14 +2,14 @@
 :css: css/style-redhat.css
 
 This is my first hovercraft presentation.
-It was for BarCamp Rochester, April 2013.
+It was for BarCamp Rochester, November 2013.
 
 ----
 
 GPG Key-Signing Party
 ---------------------
 
-Barcamp Rochester, April 20th, 2013
+Barcamp Rochester, November 2nd, 2013
 
 - Presented by Ralph Bean
 - http://github.com/ralphbean
