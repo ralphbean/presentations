@@ -56,8 +56,8 @@ communicating with each other in the heterogeneous,
 
 It has had Fedora in the name, but `Debian Infrastructure picked it up
 <http://lists.debian.org/debian-qa/2013/04/msg00010.html>`_
-this past summer.  They `made progress
-<http://blog.olasd.eu/2013/07/bootstrapping-fedmsg-for-debian/>`_ too.  We've
+this past summer with `success
+<http://blog.olasd.eu/2013/07/bootstrapping-fedmsg-for-debian/>`_.  We've
 now changed the name to mean the *FEDerated Message Bus* instead.  See the
 `fosdem talk <https://fosdem.org/2014/schedule/event/fedmsg/>`_ for more on
 that relationship.
@@ -69,18 +69,18 @@ that relationship.
 :data-scale: 1
 
 
-We (Fedora Infrastructure) use *X.509 certificates* to **sign** messages;
-fedmsg can also handle *gpg* signatures (Debian will be doing this).
-
 It's meant to be deployed in an open infrastructure.  Anyone can read.
 Anyone can write.  Only some messages are trusted.
+
+We (Fedora Infrastructure) use *X.509 certificates* to **sign** messages;
+fedmsg can also handle *gpg* signatures (Debian will be doing this).
 
 ----
 
 :data-x: r1600
 :data-y: r0
 
-It is built on top of `ØMQ <http://zeromq.org>`_.
+fedmsg is built on top of `ØMQ <http://zeromq.org>`_.
 
 There is no central broker and as far as we can tell, no single
 point of failure.
@@ -115,11 +115,36 @@ the producer isn't stuck.
 
 ----
 
-TODO - talk about service discovery here
+With no centralized broker to distribute information, we needed a way to:
+
+- Tell producers which port(s) to bind to.
+- Tell consumers which IP/port(s) to connect to.
+
+These are called 'endpoints'.
+
+fedmsg can do this in one of two ways:
+
+- It can read in the list of endpoints from a config file in
+  ``/etc/fedmsg.d/`` -- Fedora Infrastructure does it this way.
+- Query a dns ``SRV`` record for the list of endpoints.  Debian Infrastructure
+  plans to do it this way.
 
 ----
 
-TODO - talk about guarantees, persistance, and replay here.
+By default, fedmsg operates by 'fire-and-forget' which gives us that
+interesting decoupling property.  It also means that there is no guarantee that
+the message gets to everyone (or anyone) who is interested in it.
+
+fedmsg has the option to turn on a local message store and replay mechanism for
+producers, but we have no reports of anyone using it in production.  It
+requires that each local sender *have its own database* to store every message
+sent.  It significantly increases the overheard of deploying fedmsg.
+
+Theoretically, there could be dropped messages.  We wrote a script that hourly
+compared the list of koji builds with the list of fedmsg messages about koji
+builds to see if there were any discrepancies.  None were found.
+
+With the risk of dropped messages comes increased flexibility.
 
 ----
 
@@ -588,7 +613,12 @@ for you, and you, and you
 
 .. image:: images/fedmsg-devconf14-img/badges_fan.png
 
-TODO - describe how it works
+The badge awarding backend daemon, `fedbadges
+<https://github.com/fedora-infra/fedbadges>`_, wakes up when it receives a
+fedmsg event. It compares that message and the history in datanommer against a
+series of `rules <https://git.fedorahosted.org/cgit/badges.git>`_. If a
+contributor matches the criteria described in one of those rules, then they are
+**awarded a badge** in real time.
 
 ----
 
@@ -648,7 +678,11 @@ qa workflow
 taskotron
 ~~~~~~~~~
 
-TODO -- talk about plans for taskotron
+The QA-devel team is using the downtime before the Fedora 21 development cycle
+to build `taskotron
+<https://fedoraproject.org/wiki/User:Tflink/taskotron_contribution_guide>`_ to
+scale the manpower of infra/qa/releng   It will kick of automated QA tasks in
+response to all the various pieces of the development and update process.
 
 ----
 
@@ -665,17 +699,19 @@ Fedora releases.  You can read more about them `here
 <https://fedoraproject.org/wiki/Infrastructure/Mirroring>`_.
 As it stands they all run ``rsync`` on some interval to poll for new content.
 
-There was some discussion of pushing the data years ago, but understandably,
-mirror admins are reluctant to allow someone access to push content onto their
-machines.  With a fedmsg solution, we only push a notification; the pulling
-is still within the admin's control.
+There was some discussion of pushing the data years ago, but mirror admins are
+understandably reluctant to allow someone access to push content onto their
+machines.  With a fedmsg solution, we would only push a notification; the
+pulling is still within the admin's control.
 
-TODO update this paragraph to talk about the current status
+There was a `pull request <https://github.com/fedora-infra/fedmsg/pull/158>`_
+that added a ``fedmsg-trigger`` command to fedmsg core.  We can use that to
+kick off rsync jobs when messages matching certain criteria are received.
 
-There is a `pull request <https://github.com/fedora-infra/fedmsg/pull/158>`_
-waiting for review that will add a ``fedmsg-trigger`` command to fedmsg core.
-We can use that to kick off rsync jobs when messages matching certain criteria
-are received.
+Now, though, we are waiting on bodhi2 to be released.  We need messages from
+the ``masher`` process about when updates are finally pushed.  bodhi1's masher
+had `some problems <https://github.com/fedora-infra/fedmsg/issues/115>`_ with
+fedmsg.
 
 ----
 
