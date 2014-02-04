@@ -42,7 +42,8 @@ what it is
 
 The `Fedora Infrastructure Message Bus <http://fedmsg.com>`_ is a
 python package and API used around Fedora Infrastructure to send
-and receive messages to and from applications.
+and receive messages to and from applications.  The core lib is
+stable.
 
 It's not my idea!  In 2009, `jkeating started making noise about
 a message bus
@@ -131,18 +132,14 @@ fedmsg can do this in one of two ways:
 
 ----
 
-By default, fedmsg operates by 'fire-and-forget' which gives us that
-interesting decoupling property.  It also means that there is no guarantee that
-the message gets to everyone (or anyone) who is interested in it.
+Theoretically, there could be dropped messages.  We wrote a script that hourly
+compared the list of koji builds with the list of fedmsg messages about koji
+builds to see if there were any discrepancies.  None were found.
 
 fedmsg has the option to turn on a local message store and replay mechanism for
 producers, but we have no reports of anyone using it in production.  It
 requires that each local sender *have its own database* to store every message
 sent.  It significantly increases the overheard of deploying fedmsg.
-
-Theoretically, there could be dropped messages.  We wrote a script that hourly
-compared the list of koji builds with the list of fedmsg messages about koji
-builds to see if there were any discrepancies.  None were found.
 
 With the risk of dropped messages comes increased flexibility.
 
@@ -523,18 +520,6 @@ TODO -- either fix this or remove it
 
 ----
 
-...and gource,
-==============
-of course
-~~~~~~~~~
-
-.. image:: images/fedmsg-devconf14-img/gource-screenshot.png
-   :height: 650px
-   :alt: Fedmsg piped live to gource
-   :target: http://threebean.org/blog/fedmsg-live-gource/
-
-----
-
 nom
 ===
 all the data
@@ -661,28 +646,49 @@ stuff
 :data-x: r0
 :data-y: r900
 
-fedora
+future
 ======
-mobile
-~~~~~~
+stuff
+~~~~~
 
-See Ricky Elrod's `landing page <http://fedoramobile.elrod.me/>`_.
+**Fedora Mobile** -- See Ricky Elrod's `landing page
+<http://fedoramobile.elrod.me/>`_.
 
 ----
 
 :data-x: r0
 :data-y: r900
 
-qa workflow
-===========
-taskotron
-~~~~~~~~~
+future
+======
+stuff
+~~~~~
 
-The QA-devel team is using the downtime before the Fedora 21 development cycle
-to build `taskotron
+**taskotron** -- The QA-devel team is using the downtime before the Fedora 21
+development cycle to build `taskotron
 <https://fedoraproject.org/wiki/User:Tflink/taskotron_contribution_guide>`_ to
-scale the manpower of infra/qa/releng   It will kick of automated QA tasks in
+scale the manpower of infra/qa/releng.  It will kick of automated QA tasks in
 response to all the various pieces of the development and update process.
+
+----
+
+:data-x: r0
+:data-y: r900
+
+future
+======
+stuff
+~~~~~
+
+**cnucnuweb** -- Pierre has been working on something we cooked up in concept
+at Flock 2013:  a webapp replacement for the `wiki page used for upstream
+release monitoring
+<https://fedoraproject.org/wiki/Upstream_release_monitoring>`_.
+
+With it, we can send messages that might be useful to Linux distributions *in
+general*.  It is called `cnucnuweb
+<https://github.com/fedora-infra/cnucnuweb/>`_.
+
 
 ----
 
