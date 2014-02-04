@@ -130,6 +130,14 @@ It is *publicly subscribable* -- hit up ``tcp://hub.fedoraproject.org:9940``
 with a ``zmq.SUB`` socket.  This is configured by default when you ``yum
 install fedmsg``.
 
+.. code:: python
+
+    # This is installed by default...
+    "fedora-infrastructure": [
+        "tcp://hub.fedoraproject.org:9940",
+        #"tcp://stg.fedoraproject.org:9940",
+    ],
+
 To listen to debian messages on your box, add this to
 ``/etc/fedmsg.d/endpoints.py``:
 
