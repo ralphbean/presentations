@@ -170,7 +170,7 @@ you have to get it
 
 .. code:: bash
 
-    $ sudo yum -y install fedmsg
+    $ sudo yum install fedmsg
 
 ----
 
@@ -310,7 +310,7 @@ messages.  Debian is working on their own.  Install the Fedora one!)*
 
 .. code:: bash
 
-   $ sudo yum -y install python-fedmsg-meta-fedora-infrastructure
+   $ sudo yum install python-fedmsg-meta-fedora-infrastructure
 
 With that, you can use the more fantastic options:
 
