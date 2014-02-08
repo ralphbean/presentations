@@ -55,6 +55,8 @@ send messages to one another over a message bus instead of
 communicating with each other in the heterogeneous,
 “Rube-Goldberg” ways they do now.
 
+----
+
 It has had Fedora in the name, but `Debian Infrastructure picked it up
 <http://lists.debian.org/debian-qa/2013/04/msg00010.html>`_
 this past summer with `success
@@ -132,25 +134,29 @@ fedmsg can do this in one of two ways:
 
 ----
 
-Theoretically, there could be dropped messages.  We wrote a script that hourly
-compared the list of koji builds with the list of fedmsg messages about koji
-builds to see if there were any discrepancies.  None were found.
+Theoretically, there could be dropped messages.
 
-fedmsg has the option to turn on a local message store and replay mechanism for
-producers, but we have no reports of anyone using it in production.  It
-requires that each local sender *have its own database* to store every message
-sent.  It significantly increases the overheard of deploying fedmsg.
+**However**, we wrote a script that hourly compared the list of koji builds
+with the list of fedmsg messages about koji builds to see if there were
+any discrepancies.  *None were found.*
 
-With the risk of dropped messages comes increased flexibility.
+**Furthermore**, fedmsg has the option to turn on a local message store
+and replay mechanism for producers, but we have no reports of anyone
+using it in production.  It requires that each local sender *have its own
+database* to store every message sent.  It significantly increases the
+overheard of deploying fedmsg.
+
+*(With the risk of dropped messages comes increased flexibility.)*
 
 ----
 
 :data-x: r1600
 :data-y: 0
 
-It is *publicly subscribable* -- hit up ``tcp://hub.fedoraproject.org:9940``
-with a ``zmq.SUB`` socket.  This is configured by default when you ``yum
-install fedmsg``.
+The bus is **publicly subscribable**
+
+Hit up ``tcp://hub.fedoraproject.org:9940`` with a ``zmq.SUB`` socket.
+This is configured by default when you ``yum install fedmsg``.
 
 .. code:: python
 
@@ -351,25 +357,6 @@ With that, you can use the more fantastic options:
     wiki.article.edit -- Hguemar made a wiki edit to "Flock:Rideshare"
     https://fedoraproject.org/w/index.php?title=Flock:Rideshare&diff=prev&oldid=347430
 
-----
-
-:data-scale: 0.25
-
-consuming messages
-==================
-like you're living in the future
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You can run:
-
-.. code:: bash
-
-    $ fedmsg-tail --gource | gource --log-format custom -
-
-Which makes something `like this
-<http://threebean.org/so-i-turned-the-fedmsg-data-into-a-git-log-and.webm>`_.
-
-TODO -- write a datagrepper replacement for busmon
 
 ----
 
@@ -506,20 +493,6 @@ Some more advanced message filtration.
 
 ----
 
-monitoring the bus
-==================
-in the browser with websockets
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. image:: images/fedmsg-devconf14-img/busmon-screencast.gif
-   :height: 510px
-   :alt: Fedora Bus Monitor
-   :target: https://apps.fedoraproject.org/busmon
-
-TODO -- either fix this or remove it
-
-----
-
 nom
 ===
 all the data
@@ -534,6 +507,8 @@ simply throws every message into a database.
 It has a partner: `datagrepper
 <https://apps.fedoraproject.org/datagrepper>`_!  Datagrepper is
 an HTTP JSON API for the whole history of messages kept in datanommer.
+
+Datagrepper is **really cool**.  The quite easy to use.
 
 ----
 
@@ -629,8 +604,6 @@ We just soft launched a beta of this last week.  Please try it out
 and file bugs, RFEs, etc:  `https://apps.fedoraproject.org/notifications
 <https://apps.fedoraproject.org/notifications>`_.
 
-Getting irc notifications of your build failures is pretty sweet.
-
 ----
 
 :data-x: r1600
@@ -651,8 +624,51 @@ future
 stuff
 ~~~~~
 
+**Bugzilla Messages!**
+
+*(coming in Spring of 2014)*
+
+----
+
+:data-x: r0
+:data-y: r900
+
+future
+======
+stuff
+~~~~~
+
 **Fedora Mobile** -- See Ricky Elrod's `landing page
 <http://fedoramobile.elrod.me/>`_.
+
+----
+
+:data-x: r0
+:data-y: r900
+
+future
+======
+stuff
+~~~~~
+
+**Mirror pushing.** -- *Problem:* We have over 200 mirrors that help serve
+Fedora releases.  You can read more about them `here
+<https://fedoraproject.org/wiki/Infrastructure/Mirroring>`_.
+As it stands they all run ``rsync`` on some interval to poll for new content.
+
+There was some discussion of pushing the data years ago, but mirror admins are
+understandably reluctant to allow someone access to push content onto their
+machines.  With a fedmsg solution, we would only push a notification; the
+pulling is still within the admin's control.
+
+There was a `pull request <https://github.com/fedora-infra/fedmsg/pull/158>`_
+that added a ``fedmsg-trigger`` command to fedmsg core.  We can use that to
+kick off rsync jobs when messages matching certain criteria are received.
+
+Now, though, we are waiting on bodhi2 to be released.  We need messages from
+the ``masher`` process about when updates are finally pushed.  bodhi1's masher
+had `some problems <https://github.com/fedora-infra/fedmsg/issues/115>`_ with
+fedmsg.
 
 ----
 
@@ -690,34 +706,6 @@ general*.  It is called `cnucnuweb
 <https://github.com/fedora-infra/cnucnuweb/>`_.
 
 
-----
-
-:data-x: r0
-:data-y: r900
-
-future
-======
-stuff
-~~~~~
-
-**Mirror pushing.** -- *Problem:* We have over 200 mirrors that help serve
-Fedora releases.  You can read more about them `here
-<https://fedoraproject.org/wiki/Infrastructure/Mirroring>`_.
-As it stands they all run ``rsync`` on some interval to poll for new content.
-
-There was some discussion of pushing the data years ago, but mirror admins are
-understandably reluctant to allow someone access to push content onto their
-machines.  With a fedmsg solution, we would only push a notification; the
-pulling is still within the admin's control.
-
-There was a `pull request <https://github.com/fedora-infra/fedmsg/pull/158>`_
-that added a ``fedmsg-trigger`` command to fedmsg core.  We can use that to
-kick off rsync jobs when messages matching certain criteria are received.
-
-Now, though, we are waiting on bodhi2 to be released.  We need messages from
-the ``masher`` process about when updates are finally pushed.  bodhi1's masher
-had `some problems <https://github.com/fedora-infra/fedmsg/issues/115>`_ with
-fedmsg.
 
 ----
 
