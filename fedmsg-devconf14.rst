@@ -114,7 +114,7 @@ the producer isn't stuck.
 :data-y: r900
 
 .. image:: images/fedmsg-devconf14-img/topology.png
-   :height: 685px
+   :height: 600px
 
 ----
 
@@ -175,6 +175,56 @@ To listen to debian messages on your box, add this to
     "debian-infrastructure": [
         "tcp://fedmsg.olasd.eu:9940",
     ],
+
+----
+
+:data-x: r1600
+:data-y: 0
+:data-scale: 1
+
+topics
+======
+what messages?
+~~~~~~~~~~~~~~
+
+----
+
+:data-x: r0
+:data-y: r900
+
+topics
+======
+
+Full list at http://fedmsg.com/en/latest/topics/, including:
+
+- askbot.post.edit
+- bodhi.update.comment
+- bodhi.update.request.testing
+- buildsys.build.state.change
+- copr.build.end
+- fas.group.member.sponsor
+- fas.role.update
+- fedocal.meeting.update
+- git.receive
+- meetbot.meeting.start
+- pkgdb.acl.update
+- planet.post.new
+- wiki.article.edit
+
+----
+
+:data-x: r0
+:data-y: r900
+
+topics
+======
+visualization
+~~~~~~~~~~~~~
+
+There is a `script <https://github.com/ralphbean/fedmsg2gource>`_ to generate
+visualizations of the bus 
+
+Let's check it out!
 
 ----
 
@@ -358,40 +408,6 @@ With that, you can use the more fantastic options:
     https://fedoraproject.org/w/index.php?title=Flock:Rideshare&diff=prev&oldid=347430
 
 
-----
-
-:data-x: r1600
-:data-y: 0
-:data-scale: 1
-
-topics
-======
-what messages?
-~~~~~~~~~~~~~~
-
-----
-
-:data-x: r0
-:data-y: r900
-
-topics
-======
-
-Full list at http://fedmsg.com/en/latest/topics/, including:
-
-- askbot.post.edit
-- bodhi.update.comment
-- bodhi.update.request.testing
-- buildsys.build.state.change
-- copr.build.end
-- fas.group.member.sponsor
-- fas.role.update
-- fedocal.meeting.update
-- git.receive
-- meetbot.meeting.start
-- pkgdb.acl.update
-- planet.post.new
-- wiki.article.edit
 
 ----
 
