@@ -616,8 +616,8 @@ instead of per-app.
 What about notifications to different *contexts*?  Email?
 IRC privmsg?  Android?  RSS?
 
-We just soft launched a beta of this last week.  Please try it out
-and file bugs, RFEs, etc:  `https://apps.fedoraproject.org/notifications
+We just **soft launched a beta of this last week**.  Please try it out and file
+bugs, RFEs, etc:  `https://apps.fedoraproject.org/notifications
 <https://apps.fedoraproject.org/notifications>`_.
 
 ----
