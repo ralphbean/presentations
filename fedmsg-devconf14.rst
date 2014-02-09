@@ -372,45 +372,6 @@ Clone it and use it as a starting point as you please.
 
 ----
 
-:data-x: r0
-:data-y: r900
-:data-scale: 0.5
-
-consuming messages
-==================
-at the command line... an aside
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-There are lots of fun options to ``fedmsg-tail``.
-
-*(Aside: there is a plugin system to provide domain-specific metadata about
-messages.  Debian is working on their own.  Install the Fedora one!)*
-
-.. code:: bash
-
-   $ sudo yum install python-fedmsg-meta-fedora-infrastructure
-
-With that, you can use the more fantastic options:
-
-.. code:: bash
-
-   $ fedmsg-tail --terse
-
-.. code:: text
-
-    buildsys.build.state.change -- ausil's tncfhh-0.8.3-14.fc20 completed
-    http://koji.fedoraproject.org/koji/buildinfo?buildID=439734
-    trac.ticket.update -- kevin closed a ticket on the Fedora Infrastructure trac instance as 'fixed'
-    https://fedorahosted.org/fedora-infrastructure/ticket/3904
-    bodhi.update.request.testing -- mmckinst submitted nawk-20121220-1.fc18 to testing
-    https://admin.fedoraproject.org/updates/nawk-20121220-1.fc18
-    wiki.article.edit -- Hguemar made a wiki edit to "Flock:Rideshare"
-    https://fedoraproject.org/w/index.php?title=Flock:Rideshare&diff=prev&oldid=347430
-
-
-
-----
-
 :data-x: r1600
 :data-y: 0
 
