@@ -524,7 +524,7 @@ It has a partner: `datagrepper
 <https://apps.fedoraproject.org/datagrepper>`_!  Datagrepper is
 an HTTP JSON API for the whole history of messages kept in datanommer.
 
-Datagrepper is **really cool**.  The quite easy to use.
+Datagrepper is **really cool**.  The API is quite easy to use.
 
 ----
 
