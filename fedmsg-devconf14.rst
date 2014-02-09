@@ -702,6 +702,8 @@ development cycle to build `taskotron
 scale the manpower of infra/qa/releng.  It will kick of automated QA tasks in
 response to all the various pieces of the development and update process.
 
+Key infrastructure piece for Fedora.NEXT.
+
 ----
 
 :data-x: r0
