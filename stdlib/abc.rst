@@ -190,6 +190,33 @@ the abc module
 :data-x: r0
 :data-y: r900
 
+Abstract Base Classes are primarily defined using the ``abc.ABCMeta``
+metaclass.
+
+From the `python docs
+<https://docs.python.org/2/reference/datamodel.html#customizing-class-creation>`_:
+
+By default, new-style classes are constructed using ``type()``. A class
+definition is read into a separate namespace and the value of class name is
+bound to the result of ``type(name, bases, dict)``.
+
+When the class definition is read, if ``__metaclass__`` is defined then the
+callable assigned to it will be called instead of ``type()``. This allows
+classes or functions to be written which monitor or alter the class creation
+process:
+
+- Modifying the class dictionary prior to the class being created.
+- Returning an instance of another class – essentially performing the role of a
+  factory function.
+
+The potential uses for metaclasses are boundless. Some ideas that have been
+explored including logging, interface checking, automatic delegation, automatic
+property creation, proxies, frameworks, and automatic resource
+locking/synchronization.
+
+----
+
+
 .. code:: python
 
     import abc
