@@ -168,7 +168,7 @@ The context manager API is OK.
 It is *really* fun to use context managers, but maybe less fun to implement
 them.
 
-You have lots of magic methods: lots of ``__enter__`` and ``__exit__`` to keep
+You have magic methods: some ``__enter__`` and ``__exit__`` to keep
 around, and ``__exit__`` has a messy signature.
 
 ----
