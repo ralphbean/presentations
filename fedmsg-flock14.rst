@@ -607,6 +607,158 @@ happy hacking to go and deal with Twitter, its API, and API keys.
 The Twitter API
 ===============
 
-twitter credentials
-twitter api
+We're going to have to:
+
+1) Create our own "app".  Visit https://apps.twitter.com/app/new
+2) Modify that app's permission to include **"Read and Write"**.
+3) Authorize that app with our own account, which yields *oauth tokens*.
+   To do this, click the **"Create my access token"** button at the bottom of
+   your app's detail page.
+
+We will keep those tokens a secret and our little bot will use them to login
+and tweet on our behalf.  You'll get **four** secret strings.
+
+----
+
+Storing
+=======
+those secrets
+~~~~~~~~~~~~~
+
+First, add a directory called ``fedmsg.d/`` to your current working directory.
+
+In it, put a file called ``fedmsg.d/twitter-secrets.py`` that looks like this:
+
+.. code:: python
+
+    config = dict(
+        consumer_key        = "your api key goes here",
+        consumer_secret     = "your api secret goes here",
+        access_token_key    = "your access token goes here",
+        access_token_secret = "your access token secret goes here",
+    )
+
+Test that fedmsg can read in that new config file by looking for them in:
+
+.. code:: bash
+
+    $ fedmsg-config | less
+
+----
+
+Using
+=====
+those secrets
+~~~~~~~~~~~~~
+
+Go back to ``badgebot.py`` and add the following:
+
+.. code:: python
+
+    import tweepy
+
+    consumer_key        = config['consumer_key']
+    consumer_secret     = config['consumer_secret']
+    access_token_key    = config['access_token_key']
+    access_token_secret = config['access_token_secret']
+
+    auth_handler = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth_handler.set_access_token(access_token_key, access_token_secret)
+    twitter_api = tweepy.API(auth_handler)
+
+----
+
+And
+===
+further down
+~~~~~~~~~~~~
+
+.. code:: python
+
+    for name, endpoint, topic, msg in fedmsg.tail_messages():
+
+        subtitle = fedmsg.meta.msg2subtitle(msg, **config)
+        link = fedmsg.meta.msg2link(msg, **config)
+        icon = fedmsg.meta.msg2icon(msg, **config)
+
+        _, filename = tempfile.mkstemp(suffix='.png')
+        print "Downloading", icon, "to", filename
+        urllib.urlretrieve(icon, filename)
+
+        # Construct and post our tweet.
+        #print fabulous.image.Image(filename)
+        content = subtitle + " " + link
+        print "Tweeting %r" % content
+        twitter_api.update_with_media(filename, content)
+
+        print "Cleaning up %r" % filename
+        os.remove(filename)
+
+----
+
+Does it work?
+=============
+
+----
+
+:data-x: r1600
+:data-y: 0
+
 systemd
+=======
+for real
+~~~~~~~~
+
+Make a new file called ``badgebot.service`` with these contents::
+
+    [Unit]
+    Description=A Twitter bot for your Fedora Badges.  Wow.
+    After=network.target
+    Documentation=http://fedmsg.com
+
+    [Service]
+    ExecStart=/usr/local/bin/badgebot.py
+    Type=simple
+    User=fedmsg
+    Group=fedmsg
+
+    [Install]
+    WantedBy=multi-user.target
+
+----
+
+install.sh
+==========
+
+.. code:: bash
+
+    #!/bin/bash -x
+    # install.sh - (re)install and (re)start the badgebot
+
+    # Install our script
+    cp badgebot.py /usr/local/bin/badgebot.py
+
+    # Make sure no one else can read our secrets.
+    cp fedmsg.d/twitter-secrets.py /etc/fedmsg.d/.
+    chown fedmsg:fedmsg /etc/fedmsg.d/twitter-secrets.py
+    chmod o-r /etc/fedmsg.d/twitter-secrets.py
+
+    # Copy in service file for systemd
+    cp /home/threebean/devel/badgebot/badgebot.service /usr/lib/systemd/system/badgebot.service
+    systemctl daemon-reload
+    systemctl restart badgebot
+
+----
+
+Watch the journal::
+
+    sudo journalctl -u badgebot --follow
+
+Does it work?  Debug!
+
+----
+
+:data-x: r1600
+:data-y: 0
+
+The end..
