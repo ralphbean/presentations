@@ -1,5 +1,5 @@
 :title: rube-flock14
-:css: css/style-redhat.css
+:css: css/style-fedora.css
 :data-transition-duration: 500
 :skip-help: true
 :hovercraft-path: m275,175 v-150 a150,150 0 0,0 -150,150 z
@@ -112,6 +112,9 @@ Running it
 is simple
 ~~~~~~~~~
 
+Any one of us can do this -- and *should* do this when we update things
+in staging.
+
 .. code:: bash
 
     $ sudo yum install python-virtualenvwrapper gcc-g++
@@ -135,6 +138,117 @@ is simple
 :data-x: r1600
 :data-y: 0
 
-look at a simple test
-talk about the decorators
-talk about uncovered services maybe?
+An example test
+===============
+
+.. code:: python
+
+    class TestWiki(rube.fedora.FedoraRubeTest):
+        base = "https://stg.fedoraproject.org/wiki"
+        logout_url = "https://stg.fedoraproject.org/w/index.php" + \
+            "?title=Special:UserLogout"
+        title = "FedoraProject"
+
+        @rube.core.tolerant()
+        @rube.core.expects_zmqmsg('stg.wiki.article.edit')
+        def test_login_and_edit(self):
+            self.driver.get("https://stg.fedoraproject.org/wiki/Rube_Test_Page")
+            elem = self.driver.find_element_by_css_selector("#ca-edit > a")
+            elem.click()
+
+            elem = self.driver.find_element_by_id("wpTextbox1")
+            elem.send_keys(Keys.PAGE_DOWN)
+            tag = str(uuid.uuid4())
+            s = "Test comment from Rube\n%s" % tag
+            elem.send_keys(s)
+            elem = self.driver.find_element_by_css_selector("#wpSave")
+            elem.submit()
+
+            self.wait_for(tag)
+
+----
+
+:data-x: r0
+:data-y: r900
+
+rube.core
+=========
+has some decorators
+~~~~~~~~~~~~~~~~~~~
+
+``@rube.core.tolerant(n=3)`` tries to run your test.  If it succeeds, it does
+nothing more.  If your test fails, it tries again and again (up to ``n``
+times, by default 3 times).  If it fails all ``n`` times, the failure is
+reported in the test.  This is useful if your connection is flaky, or you
+know that one app is sometimes on the fritz.
+
+----
+
+``@rube.core.skip_logout()`` perhaps somewhat obviously will add your test to
+a hidden ``_no_teardown`` list.  The ``tearDown`` method will skip it when
+the time comes.
+
+----
+
+``@rube.core.expects_zmqmsg(topic, timeout=20000)`` will cause rube to start
+up a background thread with a ``zmq.SUB`` socket.  It will connect to
+whatever endpoint you have listed in ``setup.cfg`` like this::
+
+  [zeromq]
+  tcp://stg.fedoraproject.org:9940
+
+If a message does not arrive with the specified multipart prefix before the
+timeout has elapsed, then that test will fail.  In Fedora Infrastructure, we
+use this to ensure that actions triggered on webapps by rube cause `fedmsg
+<http://fedmsg.com>`_ messages to be published on our staging gateway.
+
+----
+
+``@rube.core.ensures_after(callable)`` will invoke ``callable`` after your
+test has run, giving it a chance to raise an exception.
+
+The common use case is to define a callable that executes a shell
+command.  For instance, you could have a selenium test that goes to an
+account system and applies for a dummy user's membership in a group.  After
+that test has run, your callable could use paramiko to ssh to a machine and
+ensure that that user now has shell access (or something).
+
+----
+
+``@rube.core.collect_har`` will collect HAR performance data on your
+websites.  You have to do a little extra work (including setting up
+browsermob-proxy) in order to get this work.  See below.
+
+----
+
+:data-x: r1600
+:data-y: 0
+
+Two things
+==========
+in conclusion
+~~~~~~~~~~~~~
+
+----
+
+:data-x: r0
+:data-y: r900
+
+As we build and deploy new systems, we ought to add and update rube
+tests.
+
+We've already done this in place for new things like pkgdb2 and even
+bodhi2 (the test instance)!
+
+----
+
+It would be nice to look into running this either nightly or in
+response to certain events in headless mode on a server somewhere.
+
+We could have this publish fedmsg messages.  Keep a dashboard.
+
+Track performance enhancements or degradations over time with HAR files.
+
+----
+
+Fin.
