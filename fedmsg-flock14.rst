@@ -6,12 +6,10 @@
 
 ----
 
-fedmsg
-======
-The Fedora Infrastructure Message Bus
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Make tools with fedmsg!
+=======================
 
-FLOCK14, Prague CZ, August 8th, 2014
+Workshop at FLOCK14, Prague CZ, August 8th, 2014
 
 - Presented by Ralph Bean
 - http://github.com/ralphbean
@@ -40,16 +38,6 @@ what it is
 The `Fedora Infrastructure Message Bus <http://fedmsg.com>`_ is a
 python package and API used around Fedora Infrastructure to send
 and receive messages to and from applications.
-
-It's not my idea!  In 2009, `jkeating started making noise about
-a message bus
-<http://jkeating.fedorapeople.org/lfnw-messaging-2009.pdf>`_ and
-how cool it would be.
-
-We wanted to hook all the services in Fedora Infrastructure up to
-send messages to one another over a message bus instead of
-communicating with each other in the heterogeneous,
-“Rube-Goldberg” ways they did previously.
 
 ----
 
@@ -117,14 +105,14 @@ you should get it
 
 .. code:: bash
 
-    $ sudo yum install fedmsg
+    sudo yum install fedmsg
 
 There's also a plugin that let's us render **Fedora Infrastructure** messages
 nicely.  You should install that too:
 
 .. code:: bash
 
-    $ sudo yum install python-fedmsg-meta-fedora-infrastructure
+    sudo yum install python-fedmsg-meta-fedora-infrastructure
 
 ----
 
@@ -140,8 +128,8 @@ Clone the repo from https://github.com/ralphbean/fedmsg2gource
 
 Run::
 
-    $ python fedmsg2gource.py --days 14 > testing.log
-    $ cat testing.log | \
+    python fedmsg2gource.py --days 14 > testing.log
+    cat testing.log | \
         gource -i 10 \
             --user-image-dir ~/.cache/avatars/ \
             --log-format custom \
@@ -159,6 +147,8 @@ Explore
 the datagrepper API
 ~~~~~~~~~~~~~~~~~~~
 
+https://apps.fedoraproject.org/datagrepper
+
 ----
 
 :data-x: r1600
@@ -171,12 +161,12 @@ you wanted your own local bus
 
 .. code:: bash
 
-    $ sudo yum install fedmsg-relay
-    $ sudo systemctl start fedmsg-relay
-    $ echo "Hello World." | fedmsg-logger --modname=git --topic=repo.update
-    $ echo '{"a": 1}' | fedmsg-logger --json-input
-    $ fedmsg-logger --message="This is a message."
-    $ fedmsg-logger --message='{"a": 1}' --json-input
+    sudo yum install fedmsg-relay
+    sudo systemctl start fedmsg-relay
+    echo "Hello World." | fedmsg-logger --modname=git --topic=repo.update
+    echo '{"a": 1}' | fedmsg-logger --json-input
+    fedmsg-logger --message="This is a message."
+    fedmsg-logger --message='{"a": 1}' --json-input
 
 or from python:
 
@@ -196,7 +186,7 @@ or from python:
 ----
 
 :data-x: r1600
-:data-y: 900
+:data-y: 0
 
 if
 ==
@@ -205,7 +195,7 @@ you want to consume
 
 .. code:: bash
 
-    $ fedmsg-tail --really-pretty
+    fedmsg-tail --really-pretty
 
 .. code:: python
 
@@ -286,7 +276,7 @@ There are lots of fun options to ``fedmsg-tail`` like ``--terse``.
 
 .. code:: bash
 
-   $ fedmsg-tail --terse
+   fedmsg-tail --terse
 
 .. code:: text
 
@@ -417,10 +407,8 @@ datagrepper on all the latest updates syncs, composes, image builds, etc.. and
 puts their status all in one place.  Pure HTML/javascript -- there's no
 server-side app here.
 
-TODO -- screenshot needed.
-
 .. image:: images/fedmsg-flock14-img/releng-dash-screenshot.png
-   :height: 420px
+   :height: 350px
 
 ----
 
@@ -468,7 +456,8 @@ How
 it's going to work
 ~~~~~~~~~~~~~~~~~~
 
-TODO - make a diagram of how the program will work
+.. image:: images/fedmsg-flock14-img/twitter-diagram.png
+   :width: 900px
 
 ----
 
@@ -479,10 +468,10 @@ It's dangerous out there
 
 .. code:: bash
 
-    $ sudo yum install fedmsg
-    $ sudo yum install python-fedmsg-meta-fedora-infrastructure
-    $ sudo yum install python-fabulous
-    $ sudo yum install tweepy
+    sudo yum install fedmsg
+    sudo yum install python-fedmsg-meta-fedora-infrastructure
+    sudo yum install python-fabulous
+    sudo yum install tweepy
 
 ----
 
@@ -604,6 +593,9 @@ happy hacking to go and deal with Twitter, its API, and API keys.
 
 ----
 
+:data-x: r1600
+:data-y: 0
+
 The Twitter API
 ===============
 
@@ -619,6 +611,10 @@ We will keep those tokens a secret and our little bot will use them to login
 and tweet on our behalf.  You'll get **four** secret strings.
 
 ----
+
+:data-x: r0
+:data-y: r900
+
 
 Storing
 =======
@@ -642,7 +638,7 @@ Test that fedmsg can read in that new config file by looking for them in:
 
 .. code:: bash
 
-    $ fedmsg-config | less
+    fedmsg-config | less
 
 ----
 
@@ -727,6 +723,9 @@ Make a new file called ``badgebot.service`` with these contents::
 
 ----
 
+:data-x: r0
+:data-y: r900
+
 install.sh
 ==========
 
@@ -761,4 +760,5 @@ Does it work?  Debug!
 :data-x: r1600
 :data-y: 0
 
-The end..
+Open Hacking Time
+=================
