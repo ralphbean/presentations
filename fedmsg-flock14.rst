@@ -545,6 +545,10 @@ meta
         if topic_filter not in topic:
             continue
 
+        # Only act on your own messages -- things that *you* did.
+        if 'YOUR_FAS_USERNAME' not in fedmsg.meta.msg2usernames(msg, **config):
+            continue
+
         # Use it to make nice text and other things
         # See also: msg2icon, msg2link, msg2usernames, msg2packages...
         subtitle = fedmsg.meta.msg2subtitle(msg, **config)
