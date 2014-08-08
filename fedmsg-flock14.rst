@@ -483,17 +483,18 @@ fedmsg script
 .. code:: python
 
     import fedmsg
+    import pprint
 
     print "Posting up to listen on the fedmsg bus.  Waiting for a message..."
     for name, endpoint, topic, msg in fedmsg.tail_messages():
-        print msg
+        pprint.pprint(msg)
 
 Give it a run.
 
 ----
 
-It's like a million voices cried out at once
-============================================
+It's like a million voices cried out
+====================================
 and then were silent
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -507,7 +508,9 @@ and then were silent
             # Bail out if the topic doesn't match
             continue
 
-        print msg
+        pprint.pprint(msg)
+
+See http://fedmsg.com/en/latest/topics for more
 
 ----
 
@@ -563,10 +566,11 @@ is worth a thousand words
 
 .. code:: python
 
-    import fabulous
     import tempfile
     import urllib
+    import os
 
+    import fabulous.image
 
     for name, endpoint, topic, msg in fedmsg.tail_messages():
         # This returns a URL (most of the time)
@@ -747,7 +751,7 @@ install.sh
     chmod o-r /etc/fedmsg.d/twitter-secrets.py
 
     # Copy in service file for systemd
-    cp /home/threebean/devel/badgebot/badgebot.service /usr/lib/systemd/system/badgebot.service
+    cp badgebot.service /usr/lib/systemd/system/badgebot.service
     systemctl daemon-reload
     systemctl restart badgebot
 
