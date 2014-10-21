@@ -10,3 +10,5 @@ fedmsg-devconf14
 stdlib/abc/
 stdlib/atexit/
 stdlib/contextlib/
+stdlib/example.py*
+stdlib/inspect/
