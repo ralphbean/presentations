@@ -12,3 +12,4 @@ stdlib/atexit/
 stdlib/contextlib/
 stdlib/example.py*
 stdlib/inspect/
+stdlib/itertools/
