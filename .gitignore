@@ -14,3 +14,4 @@ stdlib/example.py*
 stdlib/inspect/
 stdlib/itertools/
 stdlib/functools/
+stdlib/timeit/
