@@ -9,7 +9,7 @@
 ansible
 -------
 
-RocPy, Novemeber 17th, 2015
+RocPy, November 17th, 2015
 
 - Presented by `@ralphbean <http://threebean>`_
 - ``2048R/971095FF 2012-12-06``
