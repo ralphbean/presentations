@@ -17,3 +17,4 @@ stdlib/functools/
 stdlib/timeit/
 debt-services-flock15
 ansible/
+bisect
