@@ -157,7 +157,7 @@ sure).
 
 ----
 
-TODO -- chart goes here
+.. image:: images/bisect.png
 
 ----
 
