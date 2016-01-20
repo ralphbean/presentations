@@ -86,7 +86,7 @@ You have two functions, and that's all (almost).
 
 .. code:: python
 
-    import python
+    import bisect
 
     # Returns the position in `list` where `item` belongs.
     bisect.bisect(list, item)
