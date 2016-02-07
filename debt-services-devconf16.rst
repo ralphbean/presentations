@@ -60,7 +60,7 @@ the alpha
 
   - "I want to be seen as a good hacker!"
 
-- We tend to celebrate "new" work over tedious maintenace.
+- We tend to celebrate "new" work over tedious maintenance.
 
 ----
 
@@ -105,45 +105,90 @@ tablespoon of salt.
 
 ----
 
-- pagure 2 days
-- mote 2 days
-- pkgdb2 5 days
-- fedora-releng-dash 5 days
-- anitya 7 days
-- fedmsg_meta_fedora_infrastructure 9 days
-- fmn.rules 13 days
-- tahrir-api 14 days
-- fmn.lib 15 days
-- fmn.consumer 16 days
-- the-new-hotness 18 days
-- datanommer 19 days
-- fedocal 19 days
-- fmn.web 20 days
+the good
+========
+
++-----------------------------------+---------+
+| pagure                            | 2 days  |
++-----------------------------------+---------+
+| mote                              | 2 days  |
++-----------------------------------+---------+
+| pkgdb2                            | 5 days  |
++-----------------------------------+---------+
+| fedora-releng-dash                | 5 days  |
++-----------------------------------+---------+
+| anitya                            | 7 days  |
++-----------------------------------+---------+
+| fedmsg_meta_fedora_infrastructure | 9 days  |
++-----------------------------------+---------+
+| fmn.rules                         | 13 days |
++-----------------------------------+---------+
+| tahrir-api                        | 14 days |
++-----------------------------------+---------+
+| fmn.lib                           | 15 days |
++-----------------------------------+---------+
+| fmn.consumer                      | 16 days |
++-----------------------------------+---------+
+| the-new-hotness                   | 18 days |
++-----------------------------------+---------+
+| datanommer                        | 19 days |
++-----------------------------------+---------+
+| fedocal                           | 19 days |
++-----------------------------------+---------+
+| fmn.web                           | 20 days |
++-----------------------------------+---------+
 
 ----
 
-- fedmsg 23 days
-- tahrir 31 days
-- blockerbugs 34 days
-- bodhi 38 days
-- fedora-tagger 38 days
-- resultsdb_api 41 days
-- fas 43 days
-- packagedb-cli 43 days
-- resultsdb_frontend 46 days
-- datagrepper 51 days
+the bad
+=======
+
++--------------------+---------+
+| fedmsg             | 23 days |
++--------------------+---------+
+| tahrir             | 31 days |
++--------------------+---------+
+| blockerbugs        | 34 days |
++--------------------+---------+
+| bodhi              | 38 days |
++--------------------+---------+
+| fedora-tagger      | 38 days |
++--------------------+---------+
+| resultsdb_api      | 41 days |
++--------------------+---------+
+| fas                | 43 days |
++--------------------+---------+
+| packagedb-cli      | 43 days |
++--------------------+---------+
+| resultsdb_frontend | 46 days |
++--------------------+---------+
+| datagrepper        | 51 days |
++--------------------+---------+
 
 ----
 
-- resultsdb 51 days
-- nuancier 52 days  <-- think about this one
-- fedbadges 62 days
-- python-fedora 67 days
-- supybot-fedora 67 days
-- koji 90 days
-- sigul 94 days
-- fedora-packages 115 days
-- kitchen 181 days  (ZOMG)
+the ugly
+========
+
++-------------------+--------------+
+| resultsdb         | 51 days      |
++-------------------+--------------+
+| **nuancier**      | 52 days      |
++-------------------+--------------+
+| fedbadges         | 62 days      |
++-------------------+--------------+
+| python-fedora     | 67 days      |
++-------------------+--------------+
+| supybot-fedora    | 67 days      |
++-------------------+--------------+
+| koji              | 90 days      |
++-------------------+--------------+
+| sigul             | 94 days      |
++-------------------+--------------+
+| fedora-packages   | 115 days     |
++-------------------+--------------+
+| kitchen           | **181 days** |
++-------------------+--------------+
 
 ----
 
@@ -187,21 +232,6 @@ of microservices is driving the interest in containerization or if the
 popularity of containerization is driving interest in microservices.
 Continuous integration, continuous deployment, immutable infrastructure --
 these are all mutually reinforcing industry trends.
-
-----
-
-but, why bother?
-================
-
-::
-
-    "...to gain any benefit from microservice thinking, you have to understand
-    what it is, how to do it, and why you should usually do something else."
-
-- "Webscale", yes.  But this is not our particular problem.
-- Scaling with respect to developer cognitive resources.
-
-  - "Locality" of code assessment and well defined boundaries help.
 
 ----
 
@@ -266,17 +296,17 @@ for deployment
 Case Studies
 ============
 
-One one hand:
+On one hand:
 
-  - old pkgdb
-  - FAS
-  - bodhi
+  - **old pkgdb**
+  - **FAS**
+  - **bodhi**
 
 On the other:
 
-  - koschei
-  - FMN
-  - old pkgdb + fedora-tagger + appdata
+  - **old pkgdb** + fedora-tagger + appdata
+  - **koschei**
+  - **FMN**
 
 ----
 
@@ -285,28 +315,30 @@ Pre-requisites
 (generally speaking)
 --------------------
 
-- rapid provisioning, we don't have, but its getting better
-- monitoring (platform and application), we have, but it's not automatic (yet)
-- automated tests, elementary
-- rapid application deployment (playbooks/manual/upgrade/\*.yml), getting better
-- devops culture (we have this)
+- **automated tests**: These are par for the course, but can we do better?
+- **rapid provisioning**: we don't have, but its getting better
+- **rapid application deployment** (playbooks/manual/upgrade/\*.yml), we're getting better here
+- **monitoring** (platform and application): we have, but it's not automatic (yet)
+- **devops culture** (we have this)
 
 ----
 
-testing strategies
+focus for a moment
 ==================
+on testing strategies
+---------------------
 
-- unit testing
-- integration testing
-- contract testing
-- end-to-end testing
+- **unit** testing
+- **integration** testing
+- **contract** testing
+- **end-to-end** testing
 
 ----
 
 contract-based testing
 ======================
-your services interact
-----------------------
+
+Recall that your services interact with each other on the backend.
 
 .. image:: images/contracts/contract1.png
 
@@ -316,6 +348,8 @@ but we don't want that
 ======================
 so we mock out interfaces
 -------------------------
+
+This is standard practice, but it generates new problems.
 
 .. image:: images/contracts/contract2.png
 
@@ -348,8 +382,26 @@ to consumers of service A
 
 ----
 
-A toolchain
-===========
+using containers
+================
+for integration testing
+-----------------------
+
+.. image:: images/container-tests/container-tests1.png
+
+----
+
+manipulate proxy
+================
+to simulate network failure
+---------------------------
+
+.. image:: images/container-tests/container-tests2.png
+
+----
+
+A hypothetical toolchain
+========================
 for continuous deployment?
 --------------------------
 
@@ -357,13 +409,27 @@ git repos to jenkins to dgroc to copr to $SYSTEM to ansible to staging to rube
 
 - would require that we get jenkins up-to-snuff
 - would require a policy change to allow copr on infra (which we've
-  begun to do in practice anyways).
+  begun to do in practice - but we need to revisit this).
 - would require $SYSTEM to be written
 - would require upgrade playbooks where we don't have them.
 - would require an arithmetic amount of work to get all our services
   ready in git, jenkins and ansible
 
 ----
+
+this sounds like a lot of work
+==============================
+so, why bother?
+---------------
+
+- Let's not get caught up in "microservices envy".
+- "Webscale", yes.  But this is not our particular problem.
+- Scaling with respect to developer cognitive resources.
+
+  - "Locality" of code assessment and well defined boundaries help.
+
+----
+
 
 A last word
 ===========
