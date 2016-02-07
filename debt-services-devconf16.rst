@@ -316,10 +316,10 @@ Pre-requisites
 --------------------
 
 - **automated tests**: These are par for the course, but can we do better?
-- **rapid provisioning**: we don't have, but its getting better
-- **rapid application deployment** (playbooks/manual/upgrade/\*.yml), we're getting better here
-- **monitoring** (platform and application): we have, but it's not automatic (yet)
-- **devops culture** (we have this)
+- **rapid provisioning**: We don't have, but its getting better.
+- **rapid application deployment** (playbooks/manual/upgrade/\*.yml), We're getting better here.
+- **monitoring** (platform and application): We have, but it's not automatic (yet).
+- **devops culture** (We're lucky to have inherited this from the past).
 
 ----
 
@@ -328,7 +328,7 @@ focus for a moment
 on testing strategies
 ---------------------
 
-- **unit** testing
+- **component** testing
 - **integration** testing
 - **contract** testing
 - **end-to-end** testing
@@ -422,6 +422,7 @@ this sounds like a lot of work
 so, why bother?
 ---------------
 
+- New test frameworks?  playbooks?  jenkins?  That is not insignificant work.
 - Let's not get caught up in "microservices envy".
 - "Webscale", yes.  But this is not our particular problem.
 - Scaling with respect to developer cognitive resources.
