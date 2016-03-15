@@ -111,8 +111,19 @@ mom
 ---
 
 .. image:: images/pypy/mom.png
+   :width: 500px
 
 How would I explain this to my mom?
+
+----
+
+consider
+========
+the english language
+--------------------
+
+.. image:: images/pypy/grammar.jpg
+   :width: 800px
 
 ----
 
@@ -122,33 +133,56 @@ daughter
 --------
 
 .. image:: images/pypy/juniper.png
+   :width: 500px
 
 How could I possibly explain this to her?
 
 ----
 
-Messing with stuff
-==================
-we probably shouldn't mess with
--------------------------------
+consider
+========
+liverwurst
+----------
 
-.. image:: images/pypy/house1.jpg
-   :width: 600px
+.. image:: images/pypy/liverwurst.jpg
+   :width: 800px
 
 ----
 
-Sometimes breaking
-==================
-stuff
------
+I own a house,
+==============
+and mess with stuff that I probably shouldn't
+---------------------------------------------
+
+.. image:: images/pypy/house1.jpg
+   :width: 400px
+
+----
+
+Sometimes,
+==========
+breaking stuff
+--------------
 
 .. image:: images/pypy/house2.jpg
    :width: 600px
 
 ----
 
+the best
+========
+advice
+------
+
+.. image:: images/pypy/sciencegurl.png
+   :width: 800px
+
+----
+
 can we hack it?
 ===============
+yes we can!
+-----------
 
 .. code:: bash
 
@@ -190,6 +224,7 @@ RPython
 is a thing
 ----------
 
+- ``pypy`` is *written in RPython*.
 - It's called "Restricted Python", or RPython.
 - It *is* python, but just not all of it.  It is a **subset of python**.
 - It is statically typed.
@@ -201,9 +236,9 @@ RPython
 by definition
 -------------
 
-Is anything accepted by the pypy translation tool.
-
-And that's kind of squirrely.
+- But, *what kind of subset is it?*
+- It is **anything accepted by the pypy translation tool**.
+- And that is kind of squirrely.
 
 ----
 
@@ -222,6 +257,14 @@ at the toolchain
 ----------------
 
 .. image:: images/pypy/translation.png
+   :width: 500px
+
+----
+
+A look
+======
+at the toolchain
+----------------
 
 - It is tracing and inferring types
 - Think about what this means in the simple fibonacci program.
@@ -262,18 +305,46 @@ consider:
 
 ----
 
-So
-==
-whatever
---------
+So,
+===
+whatever...
+-----------
 
-**but** the implications are crazy:
+**but** the implications are crazy. Look at this.  This is CPython, the one you
+know and love.
 
-they got to re-use the bytecode interpreter from pypy in the translation process.
+There's a lot more to it, but it basically boils down to this.
 
-.. image:: images/pypy/pypy.png
+.. image:: images/pypy/pypy1.png
+   :width: 700px
 
-pypy translates itself into C, using itself.
+----
+
+This is pypy
+============
+
+It is basically the same, but written in Python
+
+OK, it's not really the same.  There's a JIT in there, but bear with me.
+
+.. image:: images/pypy/pypy2.png
+   :width: 700px
+
+----
+
+Talk about
+==========
+code re-use
+-----------
+
+They got to re-use the bytecode interpreter from pypy in the translation process.
+
+.. image:: images/pypy/pypy3.png
+   :width: 700px
+
+**pypy translates itself into C, using itself.**
+
+I'm out.
 
 ----
 
@@ -284,9 +355,9 @@ thought
 
 The translation toolchain is the coolest part.
 
-There are neat things in the pypy implementation itself, like the JIT which I don't understand.
+Then again, there are neat things in the pypy implementation itself, like the JIT which I don't understand.
 
-But the translation toolchain allows other things to be implemented in rpython, and translated to C, like topaz.
+FWIW, the translation toolchain allows other things to be implemented in rpython, and translated to C, like ``topaz``.
 
 
 ----
