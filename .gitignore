@@ -20,3 +20,5 @@ ansible/
 bisect
 debt-services-devconf16
 pypy
+factory2-flock16
+taskwarrior
