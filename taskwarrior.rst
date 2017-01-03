@@ -24,10 +24,10 @@ Agenda
 
 - Philosophy (GTD)
 - Simple usage
-- The `~/.taskrc` file
+- The ``~/.taskrc`` file
+- Access on your mobile device
 - Reporting
 - Integrating bug trackers
-- Access on your Mobile Device
 
 ----
 
@@ -63,9 +63,8 @@ Let's go play
 in a terminal
 -------------
 
-- Adding tasks
-- Projects
-- Tags
+- Adding and manipulating tasks
+- Projects and tags
 - Due dates
 - Waiting
 
@@ -74,7 +73,8 @@ in a terminal
 Configuration
 =============
 
-Four values are worth setting in your `~/.taskrc` file right away::
+Four values are worth setting in your ``~/.taskrc`` file (See ``$ man taskrc``
+for lots more...)::
 
     # For reporting
     _forcecolor=yes
@@ -88,7 +88,18 @@ Four values are worth setting in your `~/.taskrc` file right away::
     # For morale
     nag=You ROCK!
 
-See ``$ man taskrc`` for lots more...
+----
+
+Access
+======
+from a mobile device
+--------------------
+
+Check out https://inthe.am/
+
+- It's AGPL, and works on your phone.
+- Synchronize with ``task sync``
+- Under the hood it uses ``taskd``; you could run your own.
 
 ----
 
@@ -99,7 +110,7 @@ reports
 
 **tl;dr**:  Feel free to steal my `timesheet.sh <https://github.com/ralphbean/lightsaber/blob/develop/roles/task/client/files/bin/timesheet.sh>`_ script.
 
-- Check out the `burndown`, `history`, and `ghistory` commands.
+- Check out the ``burndown``, ``history``, and ``ghistory`` commands.
 - Use in combination with `ansi2html <https://github.com/ralphbean/ansi2html>`_.
 
 ----
@@ -140,18 +151,6 @@ See https://bugwarrior.readthedocs.io ::
 
 ----
 
-Access
-======
-from a mobile device
---------------------
-
-Check out https://inthe.am/
-
-- It's AGPL, and works on your phone.
-- Synchronize with `task sync`
-- Under the hood it uses `taskd`; you could run your own.
-
-----
 
 taskwarrior
 ===========
