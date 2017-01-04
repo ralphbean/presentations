@@ -6,10 +6,10 @@
 
 ----
 
-how to become a taskwarrior
-===========================
-and stop being a task worrier
------------------------------
+how to stop being a task worrier
+================================
+and become a taskwarrior
+------------------------
 
 Presented at the RED tech share by `threebean <http://threebean.org>`_.
 
@@ -151,9 +151,26 @@ See https://bugwarrior.readthedocs.io ::
 
 ----
 
+some shortcuts
+==============
+that I just made up
+-------------------
 
-taskwarrior
-===========
+I've accumulated a handful of useful sciprts `here <https://github.com/ralphbean/lightsaber/tree/develop/roles/task/client/files/bin>`_.
+
+- ``next``
+- ``twait-tomorrow``
+- ``tdone``
+- ``tanno "some string"``
+
+You might also enjoy these `notes from Kevin Fenzi
+<https://www.scrye.com/wordpress/nirik/2016/03/30/taskwarrior-tips-and-notes/>`_
+of the Fedora Infrastructure team.
+
+----
+
+that's taskwarrior
+==================
 have fun!
 ---------
 
