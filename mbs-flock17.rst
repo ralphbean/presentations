@@ -147,6 +147,8 @@ Module builds move through a series of states as they are built:
 - A number of things happen here.  Once the last rpm is built, it moves to the ``done`` state.
 - The build then immediately moves to a final state called ``ready``.
 
+.. image:: images/mbs-flock17-img/mbs-states.png
+
 All the work happens in the ``build`` state.
 
 ----
