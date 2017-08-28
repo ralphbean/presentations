@@ -38,13 +38,15 @@ History of
 "how to build modules"
 ~~~~~~~~~~~~~~~~~~~~~~
 
-We presented last year at Flock with a **barely working** prototype.  Since then, nothing has fundamentally changed with respect to the build process:
+We presented last year at Flock with a **barely working** prototype.
+
+Since then, nothing has fundamentally changed with respect to the build process.  Here are some highlights:
 
 - We were building in a **dev** mbs instance in **staging** koji.  The MBS went into production in February 2017.
 - We had a near **total rewrite** of pungi needed to compose these into usable pieces.  This is much simpler now.
 - We grew local **mock** and **copr** backends.
-- Modules no longer create their own targets in koji which was a source of concern in the Spring.
-- We grew the ability to throttle builds in koji and to **tier** builds into batches.
+- Modules no longer create long-lived targets in koji which was a source of concern in the Spring.
+- We grew the ability to throttle builds in koji and to **tier** component builds into batches.
 - We grew the ability to re-use **some** components from previous module builds.
 
 Let's look at these last two in more detail.
@@ -64,7 +66,7 @@ regen to **include that build in the buildroot** of the next build.  Only after
 waiting for kojira, would we submit the next build.  This was **insanely slow**.
 
 Our approach now takes a **hint** from the modulemd format.  Components may be
-grouped into **build order groupss**.
+grouped into **build order groups**.
 
 All of the components in a single build order group will be built in parallel,
 without waiting for repo regeneration.  Once they're all done, we regenerate
@@ -80,7 +82,7 @@ components
 The original theory was that we can't re-use builds, because the buildroot
 **might** have changed.
 
-Our currently implemented, approach leverages the build order groups.  There's
+Our currently implemented approach leverages the build order groups.  There's
 more to it, but in short:
 
 - If **none of the spec files have changed** in a build order group or any of its
@@ -139,13 +141,13 @@ states
 
 Module builds move through a series of states as they are built:
 
-- They are initially in the `wait` state when the build is received but not yet validated.
-- After being validated the module moves to the `init` state.
-- Once the backend picks it up it moves to the `build` state.
-- A number of things happen here.  Once the last rpm is built, it moves to the `done` state.
-- The build then immediately moves to a final state called `ready`.
+- They are initially in the ``wait`` state when the build is received but not yet validated.
+- After being validated the module moves to the ``init`` state.
+- Once the backend picks it up it moves to the ``build`` state.
+- A number of things happen here.  Once the last rpm is built, it moves to the ``done`` state.
+- The build then immediately moves to a final state called ``ready``.
 
-All the work happens in the `build` state.
+All the work happens in the ``build`` state.
 
 ----
 
@@ -159,9 +161,11 @@ have code to build in local mock, in a remote koji instance, or in a remote
 copr instance.
 
 - First build tags are created for the module (build and dist).
+
   - Importantly, the build tag inherits from other modules that the module declares deps on.
-  - Furthermore, the `build` and `srpm-build` groups are defined based on **profiles** of those dependencies.
-- Then, a `module-build-macros` srpm is synthesized and built in the build tag.
+  - Furthermore, the ``build`` and ``srpm-build`` groups are defined based on **profiles** of those dependencies.
+
+- Then, a ``module-build-macros`` srpm is synthesized and built in the build tag.
 - Finally, the rpms in the module are built in a series of "buildorder batches".
 
 ----
@@ -180,7 +184,7 @@ A word
 about local builds
 ~~~~~~~~~~~~~~~~~~
 
-You can build modules locally with the `mbs-build local` command.
+You can build modules locally with the ``mbs-build local`` command.
 
 That process **is** an instance of the mbs backend schedular (with the local mock
 builder plugin enabled).  The same process running in the production
@@ -199,7 +203,7 @@ Things we're working on in the near future.
 - Build-time filtering
 - Transitive deps
 - Smarter component re-use.
-- The `context` value.
+- The ``context`` value.
 - Stream expansion
 
 ----
