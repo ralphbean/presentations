@@ -214,6 +214,12 @@ Things we're working on in the near future.
 Thank you
 =========
 
+The `module-build-service` is written by: Jan Kaluza, Ralph Bean, Filip
+Valder, Jakub Kadlčík, Matt Prahl, Lubos Kocman, Petr Šabata, Nils Philippsen,
+Karsten Hopp, Stanislav Ochotnicky, Tomas Tomecek, Neha Prasad, Courtney
+Pacheco, Owen W. Taylor, Matt Jia, Yashvardhan Nanavati, Patrick Uiterwijk, and
+James Antill.
+
 `@asamalik <https://github.com/asamalik>`_ will pick it up next on "Packaging Modularity".
 
 Slides available at http://threebean.org/presentations/mbs-flock17/
