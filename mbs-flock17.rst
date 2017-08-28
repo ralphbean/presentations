@@ -160,13 +160,17 @@ First, let's distinguish between the different Builder backends.  We currently
 have code to build in local mock, in a remote koji instance, or in a remote
 copr instance.
 
-- First build tags are created for the module (build and dist).
+(1.0) build tags are created for the module (build and dist).
 
-  - Importantly, the build tag inherits from other modules that the module declares deps on.
-  - Furthermore, the ``build`` and ``srpm-build`` groups are defined based on **profiles** of those dependencies.
+(1.1) Importantly, the build tag inherits from other modules that the module declares build-time deps on.
 
-- Then, a ``module-build-macros`` srpm is synthesized and built in the build tag.
-- Finally, the rpms in the module are built in a series of "buildorder batches".
+.. image:: images/mbs-flock17-img/mbs-tag-inheritance.png
+
+(1.2) Furthermore, the ``build`` and ``srpm-build`` groups are defined based on **profiles** of those dependencies.
+
+(2.0) Then, a ``module-build-macros`` srpm is synthesized and built.
+
+(3.0) Finally, the rpms in the module are built in a series of "buildorder groups" (remember from earlier?).
 
 ----
 
