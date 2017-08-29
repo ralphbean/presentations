@@ -74,6 +74,15 @@ the repo and start on the next group.
 
 ----
 
+Consider
+========
+this module
+~~~~~~~~~~~
+
+.. image:: images/mbs-flock17-img/module-groups-0.png
+
+----
+
 Re-using
 ========
 components
@@ -94,6 +103,28 @@ more to it, but in short:
 
 This lets us only rebuild components if there **might be** significant changes in
 their build environment.
+
+----
+
+
+If the systemtap specfile changed
+=================================
+
+.. image:: images/mbs-flock17-img/module-groups-2.png
+
+----
+
+If the dyninst specfile changed
+===============================
+
+.. image:: images/mbs-flock17-img/module-groups-3.png
+
+----
+
+If the chrpath specfile changed
+===============================
+
+.. image:: images/mbs-flock17-img/module-groups-4.png
 
 ----
 
@@ -201,8 +232,8 @@ environment.
 :data-x: r1600
 :data-y: 0
 
-Missing features
-================
+features.NEXT
+=============
 
 Things we're working on in the near future.
 
