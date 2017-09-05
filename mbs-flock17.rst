@@ -173,8 +173,8 @@ states
 
 Module builds move through a series of states as they are built:
 
-- They are initially in the ``wait`` state when the build is received but not yet validated.
-- After being validated the module moves to the ``init`` state.
+- They are initially in the ``init`` state when the build is received but not yet validated.
+- After being validated the module moves to the ``wait`` state.
 - Once the backend picks it up it moves to the ``build`` state.
 - A number of things happen here.  Once the last rpm is built, it moves to the ``done`` state.
 - The build then immediately moves to a final state called ``ready``.
