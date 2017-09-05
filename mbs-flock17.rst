@@ -43,7 +43,8 @@ We presented last year at Flock with a **barely working** prototype.
 Since then, nothing has fundamentally changed with respect to the build process.  Here are some highlights:
 
 - We were building in a **dev** mbs instance in **staging** koji.  The MBS went into production in February 2017.
-- We had a near **total rewrite** of pungi needed to compose these into usable pieces.  This is much simpler now.
+- We had a near **total rewrite** of pungi needed to compose these into usable
+  pieces.  We simplified this and merged into mainstream pungi.
 - We grew local **mock** and **copr** backends.
 - Modules no longer create long-lived targets in koji which was a source of concern in the Spring.
 - We grew the ability to throttle builds in koji and to **tier** component builds into batches.
